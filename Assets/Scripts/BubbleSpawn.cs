@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SignalSystem;
 
 public class BubbleSpawn : MonoBehaviour
 {
@@ -29,15 +30,15 @@ public class BubbleSpawn : MonoBehaviour
         Instantiate(enemy, spawners[randomNum].position, spawners[randomNum].rotation);
     }
 
-    public void SpawnLetter(LetterObject letterObject, string position)
+    public void SpawnLetter(LetterObject letterObject)
     {
         // si definimos los mismos numeros de spawn en cada posicion. int randomNum = Random.Range(0, leftSpawners.Length);
-        if (position == "left")
+        if (letterObject.position == "left")
         {
             int randomNum = Random.Range(0, leftSpawners.Length);
             Instantiate(enemy, leftSpawners[randomNum].position, leftSpawners[randomNum].rotation);
         }
-        else if (position == "right") {
+        else if (letterObject.position == "right") {
             int randomNum = Random.Range(0, rightSpawners.Length);
             Instantiate(enemy, rightSpawners[randomNum].position, rightSpawners[randomNum].rotation);
         }

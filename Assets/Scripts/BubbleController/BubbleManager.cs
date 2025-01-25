@@ -11,6 +11,7 @@ public class BubbleManager : MonoBehaviour
     [Header("Game components")]
     public LetterController letterController;
     public LetterObject currentLetter;
+    public BubbleSpawn bubbleSpawn;
     // spawner
 
     private void Start()
@@ -29,9 +30,9 @@ public class BubbleManager : MonoBehaviour
         while (isActive) {
             letterController.ShuffleLettersInLevel();
             currentLetter = letterController.levelInfo.letters[0];
-            // FUNCION SPAWNER (LetterObject letter)
+            bubbleSpawn.SpawnLetter(currentLetter);
             letterController.SubstractPoolLetter(currentLetter.letter);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             if (letterController.GetLetterCount() == 0)
             {
                 isActive = false;
