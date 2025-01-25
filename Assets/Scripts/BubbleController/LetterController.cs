@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace SignalSystem
 {
@@ -9,6 +10,9 @@ namespace SignalSystem
         [Header("Letter information")]
         public LetterList[] letterPool;
         public LetterList levelInfo;
+
+        [Header("Level information")]
+        public LevelManager levelManager;
 
         void Start()
         {
@@ -45,22 +49,22 @@ namespace SignalSystem
 
         }
 
-        public void ShuffleLettersInLevel(LetterList level)
+        public void ShuffleLettersInLevel()
         {
-            if (level == null || level.letters == null || level.letters.Count == 0)
+            if (levelInfo == null || levelInfo.letters == null || levelInfo.letters.Count == 0)
             {
                 Debug.LogWarning("The level or its letters are empty.");
                 return;
             }
 
             var rng = new System.Random(); // Generador de números aleatorios
-            for (int i = level.letters.Count - 1; i > 0; i--)
+            for (int i = levelInfo.letters.Count - 1; i > 0; i--)
             {
                 // Obtener un índice aleatorio
                 int j = rng.Next(i + 1);
 
                 // Intercambiar las posiciones de las letras
-                (level.letters[i], level.letters[j]) = (level.letters[j], level.letters[i]);
+                (levelInfo.letters[i], levelInfo.letters[j]) = (levelInfo.letters[j], levelInfo.letters[i]);
             }
         }
 
@@ -82,9 +86,21 @@ namespace SignalSystem
                     return;
                 }
             }
-
-            
         }
+
+        public int GetLetterCount()
+        {
+            return levelInfo.letters.Count;
+        }
+
+        public void NextLevel()
+        {
+            if (levelInfo.letters.Count == 0)
+            {
+                levelManager.nextLevel = true;
+            }
+        }
+
 
     }
 
@@ -108,6 +124,7 @@ namespace SignalSystem
         public string letter;
         public string position;
         public int pool;
+        public bool specialCharacter; 
     }
 
 }
