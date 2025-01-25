@@ -6,14 +6,16 @@ public class EnemyBubble : MonoBehaviour
 {
     public Transform player;
     [SerializeField] float speed;
-    [SerializeField] float range;
+    [SerializeField] float rangeEnemy;
 
     void Awake()
     {
         GameObject target = GameObject.FindWithTag("Player");
         if(target != null)
         {
+            rangeEnemy = target.GetComponent<BubblePlayer>().range;
             player = target.transform;
+            
         }
     }
 
@@ -25,7 +27,7 @@ public class EnemyBubble : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if(distance <= range)
+        if(distance <= rangeEnemy)
         {
             //Agregar lógica de muerte
             player.gameObject.GetComponent<BubblePlayer>().TakeDamage();
@@ -36,8 +38,9 @@ public class EnemyBubble : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, rangeEnemy);
     }
+
 
     
 }

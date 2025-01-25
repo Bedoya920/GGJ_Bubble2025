@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 62366642}
   - component: {fileID: 62366641}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Vida2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 88294943}
   - component: {fileID: 88294942}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Vida3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -553,6 +553,7 @@ GameObject:
   - component: {fileID: 478530935}
   - component: {fileID: 478530934}
   - component: {fileID: 478530933}
+  - component: {fileID: 478530937}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -644,6 +645,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &478530937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478530932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6706bb509ecc59b47a7e2ef38ac11dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverCanvas: {fileID: 255323705}
+  livesCanvas:
+  - {fileID: 921312387}
+  - {fileID: 62366639}
+  - {fileID: 88294940}
 --- !u!1 &690973185
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +705,7 @@ GameObject:
   - component: {fileID: 921312390}
   - component: {fileID: 921312389}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Vida1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -986,7 +1004,7 @@ Transform:
   m_GameObject: {fileID: 1696402446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -251.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1210,7 +1228,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2084572232}
-  - component: {fileID: 2084572234}
   - component: {fileID: 2084572235}
   - component: {fileID: 2084572236}
   m_Layer: 0
@@ -1229,39 +1246,12 @@ Transform:
   m_GameObject: {fileID: 2084572231}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 150}
-  m_LocalScale: {x: 60, y: 60, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 300, y: 300, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &2084572234
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084572231}
-  m_BodyType: 1
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &2084572235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,11 +1264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffeb882898cfadb499a11cd219320e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeCanvas:
-  - {fileID: 921312387}
-  - {fileID: 62366639}
-  - {fileID: 88294940}
-  gameOverCanvas: {fileID: 255323705}
+  range: 45
 --- !u!212 &2084572236
 SpriteRenderer:
   m_ObjectHideFlags: 0
