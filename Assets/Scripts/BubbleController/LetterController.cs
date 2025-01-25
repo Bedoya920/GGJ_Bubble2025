@@ -11,6 +11,9 @@ namespace SignalSystem
         public LetterList[] letterPool;
         public LetterList levelInfo;
 
+        [Header("Level information")]
+        public LevelManager levelManager;
+
         void Start()
         {
             //LoadEventsFromFile("Assets/Data/signals.json");
@@ -90,6 +93,14 @@ namespace SignalSystem
             return levelInfo.letters.Count;
         }
 
+        public void NextLevel()
+        {
+            if (levelInfo.letters.Count == 0)
+            {
+                levelManager.nextLevel = true;
+            }
+        }
+
 
     }
 
@@ -113,6 +124,7 @@ namespace SignalSystem
         public string letter;
         public string position;
         public int pool;
+        public bool specialCharacter; 
     }
 
 }

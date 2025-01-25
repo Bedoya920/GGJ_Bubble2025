@@ -22,16 +22,38 @@ public class LevelManager : MonoBehaviour
             if (sceneIndex < SceneManager.sceneCountInBuildSettings)
             {
                 sceneIndex++;
+                levelID = sceneIndex;
                 SceneManager.LoadScene(sceneIndex);
                 nextLevel = false;
+                
             }
         }
     }
 
-    private void NextScene()
+    public void NextScene()
     {
         sceneIndex++;
         SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit(); 
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
     }
 
 
