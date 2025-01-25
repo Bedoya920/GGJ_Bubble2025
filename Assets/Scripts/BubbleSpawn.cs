@@ -29,7 +29,7 @@ public class BubbleSpawn : MonoBehaviour
         Instantiate(enemy, spawners[randomNum].position, spawners[randomNum].rotation);
     }
 
-    public void SpawnLetter(string position)
+    public void SpawnLetter(LetterObject letterObject, string position)
     {
         // si definimos los mismos numeros de spawn en cada posicion. int randomNum = Random.Range(0, leftSpawners.Length);
         if (position == "left")
