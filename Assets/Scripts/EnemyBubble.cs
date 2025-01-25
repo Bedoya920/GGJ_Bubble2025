@@ -28,6 +28,7 @@ public class EnemyBubble : MonoBehaviour
         if(distance <= range)
         {
             //Agregar lógica de muerte
+            player.gameObject.GetComponent<BubblePlayer>().TakeDamage();
             Destroy(gameObject);
         }
     }

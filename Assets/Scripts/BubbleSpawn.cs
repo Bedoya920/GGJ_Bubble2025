@@ -22,7 +22,7 @@ public class BubbleSpawn : MonoBehaviour
         }
     }
 
-    void RandomSpawner()
+    void RandomSpawner() //Poner parametro para la letra o pasar el prefab al spawner
     {
         int randomNum = Random.Range(0, spawners.Length);
         Instantiate(enemy, spawners[randomNum].position, spawners[randomNum].rotation);
