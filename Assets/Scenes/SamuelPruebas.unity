@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 839307451}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &278183824
@@ -861,7 +861,9 @@ MonoBehaviour:
   - {fileID: 62366639}
   - {fileID: 88294940}
   gameOverCanvas: {fileID: 255323705}
+  pauseCanvas: {fileID: 1323906209}
   hitEffect: {fileID: 635784650}
+  isPaused: 0
 --- !u!1 &598484971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1323906210
 RectTransform:
   m_ObjectHideFlags: 0
