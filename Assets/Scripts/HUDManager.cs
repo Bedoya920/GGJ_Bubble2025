@@ -5,8 +5,11 @@ using UnityEngine;
 public class HUDManager : MonoBehaviour
 {
     public static HUDManager instance;
-    public GameObject gameOverCanvas;
     public GameObject[] livesCanvas;
+    public GameObject gameOverCanvas;
+    
+    public GameObject hitEffect;
+    
 
 
     void Awake()
@@ -39,5 +42,16 @@ public class HUDManager : MonoBehaviour
     public void GameOver()
     {
         gameOverCanvas.SetActive(true);
+    }
+
+    public void HitEffect()
+    {
+        hitEffect.SetActive(true);
+        Invoke("DisableHitEffect", 0.4f);
+    }
+
+    void DisableHitEffect()
+    {
+        hitEffect.SetActive(false);
     }
 }
