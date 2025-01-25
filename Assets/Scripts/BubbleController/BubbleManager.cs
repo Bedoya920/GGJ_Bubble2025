@@ -26,7 +26,6 @@ public class BubbleManager : MonoBehaviour
 
     public IEnumerator StartLevel() 
     {
-        // las burbujas se spawnean aleatoriamente.
         while (isActive) {
             letterController.ShuffleLettersInLevel();
             currentLetter = letterController.levelInfo.letters[0];
@@ -37,7 +36,8 @@ public class BubbleManager : MonoBehaviour
             {
                 isActive = false;
             }
-        }           
+        }    
+        //Cuando finaliza el lvl?
     }
 
 
