@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 417cb3fbbbb109d4ea2ef0f6061f7166
+=======
+guid: 02ee44100255d4b178669df376e59679
+>>>>>>> origin/Santi(Bubble)
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
