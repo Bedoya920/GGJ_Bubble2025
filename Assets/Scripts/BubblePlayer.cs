@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class BubblePlayer : MonoBehaviour
 {
-    public GameObject[] lifeCanvas;
-    public GameObject gameOverCanvas;
     int life = 3;
+    public float range;
 
     void Start()
     {
@@ -21,27 +20,22 @@ public class BubblePlayer : MonoBehaviour
 
     public void TakeDamage()
     {
-        UpdateUI();
+        HUDManager.instance.UpdateUI(life);
+        
         life--;
         if(life <= 0)
         {
             Debug.Log("Perdiste");
             Time.timeScale = 0f;
-            gameOverCanvas.SetActive(true);
+            HUDManager.instance.GameOver();
+            
         }
+        HUDManager.instance.HitEffect();
         //Animación de cambio o hit
     }
 
-    void UpdateUI()
-    {
-        if(life == 0)
-        {
-            lifeCanvas[life].SetActive(false);
-        } else {
-            lifeCanvas[life-1].SetActive(false);
-        }
-        
-    }
+    
+    
 
     
 }
