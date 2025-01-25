@@ -7,7 +7,7 @@ public class HUDManager : MonoBehaviour
     public static HUDManager instance;
     public GameObject[] livesCanvas;
     public GameObject gameOverCanvas;
-    
+
     public GameObject hitEffect;
     
 
@@ -47,7 +47,7 @@ public class HUDManager : MonoBehaviour
     public void HitEffect()
     {
         hitEffect.SetActive(true);
-        Invoke("DisableHitEffect", 0.4f);
+        Invoke("DisableHitEffect", 0.5f);
     }
 
     void DisableHitEffect()

@@ -33,6 +33,7 @@ public class EnemyBubble : MonoBehaviour
             player.gameObject.GetComponent<BubblePlayer>().TakeDamage();
             Destroy(gameObject);
         }
+        
     }
 
     private void OnDrawGizmos()

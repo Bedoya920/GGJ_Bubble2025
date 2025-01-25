@@ -30,6 +30,7 @@ public class BubblePlayer : MonoBehaviour
             HUDManager.instance.GameOver();
             
         }
+        HUDManager.instance.HitEffect();
         //Animación de cambio o hit
     }
 
