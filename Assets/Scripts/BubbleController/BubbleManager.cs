@@ -12,16 +12,15 @@ public class BubbleManager : MonoBehaviour
     public LetterController letterController;
     public LetterObject currentLetter;
     public BubbleSpawn bubbleSpawn;
-    // spawner
+    public LevelManager levelManager;
 
-    private void Start()
-    {
-        
-    }
     public void SelectLevel(int levelId)
     {
-        letterController.SetLevelInfo(levelId);
-        isActive = true;
+        if (letterController != null)
+        {
+            letterController.SetLevelInfo(levelId);
+            isActive = true;
+        }
         //mas cosas
     }
 

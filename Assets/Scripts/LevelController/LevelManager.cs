@@ -6,34 +6,38 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public int levelID;
-    public bool nextLevel;
     public int sceneIndex;
-    public int currentSceneIndex;
+
+    public BubbleManager bubbleManager;
+
+    private void Awake()
+    {
+        levelID = PlayerPrefs.GetInt("levelId");
+        sceneIndex = PlayerPrefs.GetInt("sceneIndex");
+    }
 
     private void Start()
     {
-        sceneIndex = 0;
-    }
-
-    private void Update()
-    {
-        if(nextLevel)
-        {
-            if (sceneIndex < SceneManager.sceneCountInBuildSettings)
-            {
-                sceneIndex++;
-                levelID = sceneIndex;
-                SceneManager.LoadScene(sceneIndex);
-                nextLevel = false;
-                
-            }
-        }
+        Debug.Log("levelId" + levelID);
+        bubbleManager.SelectLevel(levelID);
+        StartCoroutine(bubbleManager.StartLevel());
     }
 
     public void NextScene()
     {
         sceneIndex++;
-        SceneManager.LoadScene(sceneIndex);
+        levelID++;
+        PlayerPrefs.SetInt("levelId", PlayerPrefs.GetInt("levelId") + 1);
+        PlayerPrefs.SetInt("sceneIndex", PlayerPrefs.GetInt("sceneIndex") + 1);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(PlayerPrefs.GetInt("sceneIndex"));
+        Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));        
+    }
+
+    // Para probar mi rey
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
     }
 
     public void QuitGame()

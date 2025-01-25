@@ -16,13 +16,13 @@ public class BubbleSpawn : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RandomSpawner();
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        RandomSpawner();
+    //    }
+    //}
 
     void RandomSpawner() //Poner parametro para la letra o pasar el prefab al spawner
     {
