@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class EnemyBubble : MonoBehaviour
 {
-    public Transform target;
+    public Transform player;
     [SerializeField] float speed;
     [SerializeField] float range;
 
-    void Start()
+    void Awake()
     {
-        
+        GameObject target = GameObject.FindWithTag("Player");
+        if(target != null)
+        {
+            player = target.transform;
+        }
     }
 
     
-    void Update()
+    void LateUpdate()
     {
-        Vector3 direction = target.position - transform.position;
+        Vector3 direction = player.position - transform.position;
         transform.position += (direction * speed) * Time.deltaTime;
 
-        float distance = Vector3.Distance(transform.position, target.position);
+        float distance = Vector3.Distance(transform.position, player.position);
 
         if(distance <= range)
         {
-            Debug.Log("Llegué");
+            //Agregar lógica de muerte
             Destroy(gameObject);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 
     

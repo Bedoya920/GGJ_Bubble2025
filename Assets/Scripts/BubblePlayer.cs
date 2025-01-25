@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BubblePlayer : MonoBehaviour
 {
-    float range = 5f;
+    [SerializeField] float range;
+
     void Start()
     {
         
@@ -16,9 +17,5 @@ public class BubblePlayer : MonoBehaviour
         
     }
 
-    void OnDrawGizmo2D()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, range);
-    }
+    
 }
