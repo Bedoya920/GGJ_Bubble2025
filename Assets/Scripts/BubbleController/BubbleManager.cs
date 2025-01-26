@@ -35,6 +35,7 @@ public class BubbleManager : MonoBehaviour
             if (letterController.GetLetterCount() == 0)
             {
                 isActive = false;
+                levelManager.NextScene();
             }
         }    
         //Cuando finaliza el lvl?
