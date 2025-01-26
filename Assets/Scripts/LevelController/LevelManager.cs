@@ -44,6 +44,7 @@ public class LevelManager : MonoBehaviour
         }        
         bubbleManager.SelectLevel(levelID);
         StartCoroutine(bubbleManager.StartLevel());
+        StartCoroutine(bubbleManager.ReduceSpawnTime());
         //StartCoroutine(StartTimer());
     }
 
@@ -92,6 +93,7 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
         bubbleManager.SelectLevel(levelID);
         StartCoroutine(bubbleManager.StartLevel());
+        StartCoroutine(bubbleManager.ReduceSpawnTime());
     }
 
     public void PauseGame()

@@ -140,6 +140,19 @@ public class BubbleSpawn : MonoBehaviour
     }
     public void CheckLetter(string letter)
     {
+        int lifesCount = 0;
+        for (int i = 0; i < hUDManager.livesCanvas.Length; i++)
+        {
+            if (hUDManager.livesCanvas != null && hUDManager.livesCanvas[i].activeInHierarchy)
+            {
+                lifesCount++;
+            }
+        }
+        if (lifesCount == 0)
+        {
+            return;
+        }
+
         var bubbleToRemove = instancedBubbles.Find(bubble => bubble.instanceLetter  == letter);
 
         if (bubbleToRemove != null)

@@ -7232,7 +7232,8 @@ MonoBehaviour:
   musicSource: {fileID: 356569472}
   SFXSource: {fileID: 840454384}
   music: {fileID: 8300000, guid: d95eb54e5e4c2c2428b57514ccef1a93, type: 3}
-  bubble: {fileID: 8300000, guid: 216b05e136497d742a355f821e6da8dc, type: 3}
+  audioBubbleClips:
+  - {fileID: 8300000, guid: b8e1b8e0ecefe9146aabfb296705db62, type: 3}
 --- !u!4 &1582615272
 Transform:
   m_ObjectHideFlags: 0
