@@ -11,6 +11,10 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip music;
     public AudioClip[] audioBubbleClips;
+    public AudioClip failureSound;
+    public AudioClip healSound;
+    public AudioClip buttom;
+    public AudioClip selectedButtom;
 
     public static AudioManager instance;
     private int randomIndex;
@@ -53,5 +57,15 @@ public class AudioManager : MonoBehaviour
         {
             Debug.LogWarning("No hay AudioClips en la lista.");
         }
+    }
+
+    public void ButtonSound()
+    {
+        PlaySFX(buttom);
+    }
+
+    public void SelectedButtonSound()
+    {
+        PlaySFX(selectedButtom);
     }
 }

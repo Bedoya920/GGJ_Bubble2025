@@ -166,6 +166,7 @@ public class BubbleSpawn : MonoBehaviour
             Debug.Log($"Acierto: {letter}. Aciertos totales: {correctCount}");
         } else
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.failureSound);
             incorrectCount++;
             DisableStreakUI();
             streakCount = 0;
@@ -205,6 +206,7 @@ public class BubbleSpawn : MonoBehaviour
 
     private IEnumerator StreakEnumerator()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.healSound);
         healEffect.SetActive(true);
         Invoke("DisableHealEffect", 0.5f);
         yield return new WaitForSeconds(1f);
@@ -242,6 +244,7 @@ public class BubbleSpawn : MonoBehaviour
 
         if (bubbleToRemove != null)
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.failureSound);
             instancedBubbles.Remove(bubbleToRemove);
             Destroy(bubbleToRemove.instance);
             spawnedCounter += 1;
