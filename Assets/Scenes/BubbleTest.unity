@@ -1256,20 +1256,12 @@ MonoBehaviour:
     prefab: {fileID: 129419427211299586, guid: aee38b5e148ef6449b1b6b5e0f5afcbb, type: 3}
   - letter: z
     prefab: {fileID: 129419427211299586, guid: f242e27f22d5ab940824b49cbeb0d1d5, type: 3}
-  - letter: "\xE1"
-    prefab: {fileID: 129419427211299586, guid: 4024c444d511e694aa95165157453270, type: 3}
-  - letter: "\xE9"
-    prefab: {fileID: 129419427211299586, guid: b8dd66cf8ec44e2479bc3db42b6cf939, type: 3}
-  - letter: "\xED"
-    prefab: {fileID: 129419427211299586, guid: 7a2c45c7a0931894ba1e5cad9b68f3ba, type: 3}
-  - letter: "\xF3"
-    prefab: {fileID: 129419427211299586, guid: e574e4dc57ddb014bb659498572a35f3, type: 3}
-  - letter: "\xFA"
-    prefab: {fileID: 129419427211299586, guid: 732ca912665199346b3bc4e3eba75736, type: 3}
   - letter: dot
     prefab: {fileID: 129419427211299586, guid: 116cbebce19746248a8110b3da2afc5c, type: 3}
   - letter: coma
     prefab: {fileID: 129419427211299586, guid: 358f7ee88c73c144e8f5d31f23fc508d, type: 3}
+  - letter: space
+    prefab: {fileID: 129419427211299586, guid: 0aa234a8ba870d744a45025cfac27e63, type: 3}
 --- !u!4 &1118644371
 Transform:
   m_ObjectHideFlags: 0

@@ -1,18 +1,18 @@
 {
-    "eventList": [
+    "eventListSpanish": [
         {
             "levelID": 1,
             "letters": [
                 {
                     "letter": "a",
                     "position": "left",
-                    "pool": 7,
+                    "pool": 9,
                     "specialCharacter": false
                 },
                 {
                     "letter": "b",
                     "position": "left",
-                    "pool": 1,
+                    "pool": 2,
                     "specialCharacter": false
                 },
                 {
@@ -24,86 +24,122 @@
                 {
                     "letter": "d",
                     "position": "left",
-                    "pool": 4,
+                    "pool": 3,
                     "specialCharacter": false
                 },
                 {
                     "letter": "e",
                     "position": "left",
-                    "pool": 4,
+                    "pool": 15,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "f",
+                    "position": "left",
+                    "pool": 1,
                     "specialCharacter": false
                 },
                 {
                     "letter": "g",
                     "position": "left",
-                    "pool": 1,
-                    "specialCharacter": false
-                },
-                {
-                    "letter": "h",
-                    "position": "right",
-                    "pool": 1,
+                    "pool": 2,
                     "specialCharacter": false
                 },
                 {
                     "letter": "i",
                     "position": "right",
-                    "pool": 4,
-                    "specialCharacter": false
-                },
-                {
-                    "letter": "k",
-                    "position": "right",
-                    "pool": 2,
+                    "pool": 6,
                     "specialCharacter": false
                 },
                 {
                     "letter": "l",
                     "position": "right",
-                    "pool": 1,
+                    "pool": 3,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "m",
+                    "position": "right",
+                    "pool": 4,
                     "specialCharacter": false
                 },
                 {
                     "letter": "n",
                     "position": "right",
-                    "pool": 6,
+                    "pool": 7,
                     "specialCharacter": false
                 },
                 {
                     "letter": "o",
                     "position": "right",
-                    "pool": 6,
+                    "pool": 5,
                     "specialCharacter": false
                 },
                 {
                     "letter": "p",
                     "position": "right",
-                    "pool": 2,
+                    "pool": 3,
                     "specialCharacter": false
                 },
                 {
-                    "letter": "r",
-                    "position": "left",
-                    "pool": 5,
-                    "specialCharacter": false
-                },
-                {
-                    "letter": "s",
+                    "letter": "q",
                     "position": "left",
                     "pool": 1,
                     "specialCharacter": false
                 },
                 {
+                    "letter": "r",
+                    "position": "left",
+                    "pool": 7,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "s",
+                    "position": "left",
+                    "pool": 7,
+                    "specialCharacter": false
+                },
+                {
                     "letter": "t",
                     "position": "left",
-                    "pool": 5,
+                    "pool": 6,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "u",
+                    "position": "right",
+                    "pool": 4,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "v",
+                    "position": "left",
+                    "pool": 1,
                     "specialCharacter": false
                 },
                 {
                     "letter": "y",
                     "position": "right",
-                    "pool": 3,
+                    "pool": 2,
                     "specialCharacter": false
+                },
+                {
+                    "letter": "á",
+                    "position": "left",
+                    "pool": 1,
+                    "specialCharacter": true
+                },
+                {
+                    "letter": "ó",
+                    "position": "right",
+                    "pool": 1,
+                    "specialCharacter": true
+                },
+                {
+                    "letter": "ú",
+                    "position": "right",
+                    "pool": 1,
+                    "specialCharacter": true
                 },
                 {
                     "letter": "space",
@@ -126,13 +162,13 @@
                 {
                     "letter": "a",
                     "position": "left",
-                    "pool": 6,
+                    "pool": 8,
                     "specialCharacter": false
                 },
                 {
                     "letter": "b",
                     "position": "left",
-                    "pool": 1,
+                    "pool": 2,
                     "specialCharacter": false
                 },
                 {
@@ -144,115 +180,133 @@
                 {
                     "letter": "d",
                     "position": "left",
-                    "pool": 3,
+                    "pool": 2,
                     "specialCharacter": false
                 },
                 {
                     "letter": "e",
                     "position": "left",
-                    "pool": 8,
+                    "pool": 13,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "f",
+                    "position": "left",
+                    "pool": 1,
                     "specialCharacter": false
                 },
                 {
                     "letter": "g",
                     "position": "left",
-                    "pool": 3,
-                    "specialCharacter": false
-                },
-                {
-                    "letter": "h",
-                    "position": "right",
-                    "pool": 4,
+                    "pool": 2,
                     "specialCharacter": false
                 },
                 {
                     "letter": "i",
                     "position": "right",
-                    "pool": 7,
+                    "pool": 6,
                     "specialCharacter": false
                 },
                 {
-                    "letter": "k",
+                    "letter": "j",
                     "position": "right",
-                    "pool": 2,
+                    "pool": 1,
                     "specialCharacter": false
                 },
                 {
                     "letter": "l",
                     "position": "right",
-                    "pool": 3,
+                    "pool": 4,
                     "specialCharacter": false
                 },
                 {
                     "letter": "m",
                     "position": "right",
-                    "pool": 1,
+                    "pool": 3,
                     "specialCharacter": false
                 },
                 {
                     "letter": "n",
                     "position": "right",
-                    "pool": 6,
+                    "pool": 1,
                     "specialCharacter": false
                 },
                 {
                     "letter": "o",
                     "position": "right",
-                    "pool": 11,
+                    "pool": 7,
                     "specialCharacter": false
                 },
                 {
                     "letter": "p",
                     "position": "right",
-                    "pool": 5,
-                    "specialCharacter": false
-                },
-                {
-                    "letter": "r",
-                    "position": "left",
-                    "pool": 5,
-                    "specialCharacter": false
-                },
-                {
-                    "letter": "s",
-                    "position": "left",
                     "pool": 3,
                     "specialCharacter": false
                 },
                 {
-                    "letter": "t",
-                    "position": "left",
-                    "pool": 10,
-                    "specialCharacter": false
-                },
-                {
-                    "letter": "u",
-                    "position": "right",
-                    "pool": 3,
-                    "specialCharacter": false
-                },
-                {
-                    "letter": "v",
+                    "letter": "q",
                     "position": "left",
                     "pool": 1,
                     "specialCharacter": false
                 },
                 {
-                    "letter": "w",
+                    "letter": "r",
                     "position": "left",
-                    "pool": 3,
+                    "pool": 7,
                     "specialCharacter": false
                 },
                 {
-                    "letter": "y",
+                    "letter": "s",
+                    "position": "left",
+                    "pool": 7,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "t",
+                    "position": "left",
+                    "pool": 5,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "u",
                     "position": "right",
                     "pool": 5,
                     "specialCharacter": false
                 },
                 {
+                    "letter": "v",
+                    "position": "left",
+                    "pool": 2,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "x",
+                    "position": "left",
+                    "pool": 1,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "y",
+                    "position": "right",
+                    "pool": 2,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "í",
+                    "position": "right",
+                    "pool": 1,
+                    "specialCharacter": true
+                },
+                {
+                    "letter": "ó",
+                    "position": "right",
+                    "pool": 1,
+                    "specialCharacter": true
+                },
+                {
                     "letter": "space",
                     "position": "left",
-                    "pool": 17,
+                    "pool": 13,
                     "specialCharacter": true
                 },
                 {
@@ -276,73 +330,61 @@
                 {
                     "letter": "a",
                     "position": "left",
-                    "pool": 9,
+                    "pool": 14,
                     "specialCharacter": false
                 },
                 {
                     "letter": "b",
                     "position": "left",
-                    "pool": 2,
+                    "pool": 4,
                     "specialCharacter": false
                 },
                 {
                     "letter": "c",
                     "position": "left",
-                    "pool": 7,
+                    "pool": 6,
                     "specialCharacter": false
                 },
                 {
                     "letter": "d",
                     "position": "left",
-                    "pool": 4,
+                    "pool": 6,
                     "specialCharacter": false
                 },
                 {
                     "letter": "e",
                     "position": "left",
-                    "pool": 18,
+                    "pool": 24,
                     "specialCharacter": false
                 },
                 {
                     "letter": "f",
                     "position": "left",
-                    "pool": 6,
+                    "pool": 3,
                     "specialCharacter": false
                 },
                 {
                     "letter": "g",
                     "position": "left",
-                    "pool": 4,
-                    "specialCharacter": false
-                },
-                {
-                    "letter": "h",
-                    "position": "right",
                     "pool": 3,
                     "specialCharacter": false
                 },
                 {
                     "letter": "i",
                     "position": "right",
-                    "pool": 9,
-                    "specialCharacter": false
-                },
-                {
-                    "letter": "k",
-                    "position": "right",
-                    "pool": 1,
+                    "pool": 12,
                     "specialCharacter": false
                 },
                 {
                     "letter": "l",
                     "position": "right",
-                    "pool": 3,
+                    "pool": 4,
                     "specialCharacter": false
                 },
                 {
                     "letter": "m",
                     "position": "right",
-                    "pool": 4,
+                    "pool": 5,
                     "specialCharacter": false
                 },
                 {
@@ -354,19 +396,25 @@
                 {
                     "letter": "o",
                     "position": "right",
-                    "pool": 10,
+                    "pool": 9,
                     "specialCharacter": false
                 },
                 {
                     "letter": "p",
                     "position": "right",
-                    "pool": 6,
+                    "pool": 4,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "q",
+                    "position": "left",
+                    "pool": 1,
                     "specialCharacter": false
                 },
                 {
                     "letter": "r",
                     "position": "left",
-                    "pool": 12,
+                    "pool": 10,
                     "specialCharacter": false
                 },
                 {
@@ -378,23 +426,23 @@
                 {
                     "letter": "t",
                     "position": "left",
-                    "pool": 15,
+                    "pool": 8,
                     "specialCharacter": false
                 },
                 {
                     "letter": "u",
                     "position": "right",
-                    "pool": 3,
+                    "pool": 6,
                     "specialCharacter": false
                 },
                 {
                     "letter": "v",
                     "position": "left",
-                    "pool": 1,
+                    "pool": 2,
                     "specialCharacter": false
                 },
                 {
-                    "letter": "w",
+                    "letter": "x",
                     "position": "left",
                     "pool": 1,
                     "specialCharacter": false
@@ -402,13 +450,37 @@
                 {
                     "letter": "y",
                     "position": "right",
-                    "pool": 6,
+                    "pool": 3,
                     "specialCharacter": false
+                },
+                {
+                    "letter": "z",
+                    "position": "left",
+                    "pool": 1,
+                    "specialCharacter": false
+                },
+                {
+                    "letter": "á",
+                    "position": "left",
+                    "pool": 2,
+                    "specialCharacter": true
+                },
+                {
+                    "letter": "í",
+                    "position": "right",
+                    "pool": 1,
+                    "specialCharacter": true
+                },
+                {
+                    "letter": "ó",
+                    "position": "right",
+                    "pool": 1,
+                    "specialCharacter": true
                 },
                 {
                     "letter": "space",
                     "position": "left",
-                    "pool": 28,
+                    "pool": 18,
                     "specialCharacter": true
                 },
                 {
