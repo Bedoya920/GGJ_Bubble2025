@@ -1,24 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource musicSource; // AudioSource para la música
-    public Slider musicVolumeSlider; // Slider para controlar el volumen de la música
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource SFXSource;
 
-    void Start()
+    public AudioClip music;
+    public AudioClip bubble;
+
+    public static AudioManager instance;
+
+    private void Awake()
     {
-        // Configura el valor inicial del slider
-        musicVolumeSlider.value = musicSource.volume;
-
-        // Asigna el método que se llamará cuando el valor del slider cambie
-        musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+        } else
+        {
+            instance = this;
+        }
+    }
+    private void Start()
+    {
+        musicSource.clip = music;
+        musicSource.Play();
     }
 
-    void SetMusicVolume(float volume)
+    public void PlaySFX(AudioClip clip)
     {
-        musicSource.volume = volume; // Ajusta el volumen del AudioSource de la música
+        SFXSource.PlayOneShot(clip);
     }
 }

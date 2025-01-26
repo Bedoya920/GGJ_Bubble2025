@@ -9,7 +9,7 @@ public class MusicTest : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            FindObjectOfType<EffectManager>().Play("Bubble");
+            AudioManager.instance.PlaySFX(AudioManager.instance.bubble);
         }
     }
 }
