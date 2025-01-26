@@ -153,6 +153,7 @@ public class BubbleSpawn : MonoBehaviour
         if (index < objectsToActivate.Count && objectsToActivate[index] != null)
         {
             objectsToActivate[index].SetActive(true);
+
         }
     }
 
