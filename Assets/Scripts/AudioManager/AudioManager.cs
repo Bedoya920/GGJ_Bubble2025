@@ -1,24 +1,71 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource musicSource; // AudioSource para la música
-    public Slider musicVolumeSlider; // Slider para controlar el volumen de la música
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource SFXSource;
 
-    void Start()
+    public AudioClip music;
+    public AudioClip[] audioBubbleClips;
+    public AudioClip failureSound;
+    public AudioClip healSound;
+    public AudioClip buttom;
+    public AudioClip selectedButtom;
+
+    public static AudioManager instance;
+    private int randomIndex;
+
+    private void Awake()
     {
-        // Configura el valor inicial del slider
-        musicVolumeSlider.value = musicSource.volume;
-
-        // Asigna el método que se llamará cuando el valor del slider cambie
-        musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+        } else
+        {
+            instance = this;
+        }
+    }
+    private void Start()
+    {
+        musicSource.clip = music;
+        musicSource.Play();
     }
 
-    void SetMusicVolume(float volume)
+    public void PlaySFX(AudioClip clip)
     {
-        musicSource.volume = volume; // Ajusta el volumen del AudioSource de la música
+        SFXSource.PlayOneShot(clip);
+    }
+
+    public void PlayRandomAudio()
+    {
+        if (audioBubbleClips.Length > 0)
+        {
+            
+            randomIndex = Random.Range(0, audioBubbleClips.Length);
+
+            
+            SFXSource.clip = audioBubbleClips[randomIndex];
+
+           
+            SFXSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("No hay AudioClips en la lista.");
+        }
+    }
+
+    public void ButtonSound()
+    {
+        PlaySFX(buttom);
+    }
+
+    public void SelectedButtonSound()
+    {
+        PlaySFX(selectedButtom);
     }
 }

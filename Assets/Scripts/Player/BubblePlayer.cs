@@ -8,6 +8,7 @@ public class BubblePlayer : MonoBehaviour
     public float range;
 
     public BubbleSpawn bubbleSpawn;
+    public GameObject muerteAnim;
 
     void Start()
     {
@@ -17,13 +18,15 @@ public class BubblePlayer : MonoBehaviour
 
     public void TakeDamage()
     {
-        HUDManager.instance.UpdateUI(life);
+        if (life > 0) {
+            HUDManager.instance.UpdateUI(life);
+            life--;
+        }
         
-        life--;
         if(life <= 0)
         {
-            Debug.Log("Perdiste");
-            Time.timeScale = 0f;
+            //Parte cuando pierde
+            muerteAnim.SetActive(true);
             HUDManager.instance.GameOver();
             
         }
@@ -35,12 +38,12 @@ public class BubblePlayer : MonoBehaviour
         if(life == 2)
         {
             gameObject.transform.localScale = new Vector3(5, 5, 1);
-            range=35f;
+            range = 30f;
         }
         if(life==1)
         {
             gameObject.transform.localScale = new Vector3(3, 3, 1);
-            range = 28f;
+            range = 25f;
 
         }
         //Animación de cambio o hit
@@ -74,6 +77,8 @@ public class BubblePlayer : MonoBehaviour
     public void DeleteLetter(string letter) {
         bubbleSpawn.RemoveLetter(letter);
     }
+
+    
 
     
     

@@ -13,21 +13,22 @@ public class MainMenu : MonoBehaviour
     public GameObject menuCanva; 
 
     [Header("Botón")]
-    public GameObject hTPButton; 
+    public GameObject hTPButton;
+    public GameObject continueButton;
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("levelId");
+        PlayerPrefs.DeleteKey("sceneIndex");
         isOld = PlayerPrefs.GetInt("isOld") == 1; 
 
         if(isOld)
         {
             hTPButton.SetActive(true);
+            continueButton.SetActive(true);
         }
     }
-
-    
-
 
     public void StartGame()
     {

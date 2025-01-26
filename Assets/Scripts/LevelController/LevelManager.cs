@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager instance;
     public int levelID;
     public int sceneIndex;
 
@@ -19,15 +20,31 @@ public class LevelManager : MonoBehaviour
     public int totalTime = 10; 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject); // Evita duplicados eliminando esta instancia
+            return;
+        } else {
+            instance = this;
+        }
+        
         levelID = PlayerPrefs.GetInt("levelId");
         sceneIndex = PlayerPrefs.GetInt("sceneIndex");
     }
 
     private void Start()
     {
-        Debug.Log("levelId" + levelID);
+        StopAllCoroutines();
+        Time.timeScale = 1.0f;
+        ResetScenePrefs();
+        if (PlayerPrefs.GetInt("sceneIndex") > 0)
+        {
+            PlayerPrefs.SetInt("lastLevelId", levelID);
+            PlayerPrefs.Save();
+        }        
         bubbleManager.SelectLevel(levelID);
         StartCoroutine(bubbleManager.StartLevel());
+        StartCoroutine(bubbleManager.ReduceSpawnTime());
         //StartCoroutine(StartTimer());
     }
 
@@ -40,6 +57,16 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.Save();
         SceneManager.LoadScene(PlayerPrefs.GetInt("sceneIndex"));
         Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));        
+    }
+
+    public void Continue()
+    {
+        
+        PlayerPrefs.SetInt("levelId", PlayerPrefs.GetInt("lastLevelId"));
+        PlayerPrefs.SetInt("sceneIndex", PlayerPrefs.GetInt("lastLevelId"));
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(PlayerPrefs.GetInt("sceneIndex"));
+        Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));
     }
 
     // Para probar mi rey
@@ -55,6 +82,8 @@ public class LevelManager : MonoBehaviour
 
     public void Menu()
     {
+        PlayerPrefs.DeleteKey("levelId");
+        PlayerPrefs.DeleteKey("sceneIndex");
         SceneManager.LoadScene(0);
     }
 
@@ -62,6 +91,9 @@ public class LevelManager : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+        bubbleManager.SelectLevel(levelID);
+        StartCoroutine(bubbleManager.StartLevel());
+        StartCoroutine(bubbleManager.ReduceSpawnTime());
     }
 
     public void PauseGame()
@@ -115,6 +147,28 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         NextScene();
 
+    }
+
+    private void ResetScenePrefs() 
+    {
+        switch (sceneIndex) 
+        {
+            case 1:
+                PlayerPrefs.SetInt("typedKeysLevel1", 0);
+                PlayerPrefs.SetInt("failedKeysLevel1", 0);
+                PlayerPrefs.Save();
+                break;
+            case 2:
+                PlayerPrefs.SetInt("typedKeysLevel2", 0);
+                PlayerPrefs.SetInt("failedKeysLevel2", 0);
+                PlayerPrefs.Save();
+                break;
+            case 3:
+                PlayerPrefs.SetInt("typedKeysLevel3", 0);
+                PlayerPrefs.SetInt("failedKeysLevel3", 0);
+                PlayerPrefs.Save();
+                break;
+        }        
     }
     public void StartTimerButton()
     {
