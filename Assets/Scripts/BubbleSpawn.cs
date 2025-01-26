@@ -81,14 +81,28 @@ public class BubbleSpawn : MonoBehaviour
     }
 
     private void InstantiatePrefab(LetterObject letterObject, Transform spawner)
-    {
+    { 
+        Debug.Log("Buscando" + letterObject.letter);
         var prefabObject = prefabList.Find(element => element.letter == letterObject.letter);
-        // si definimos los mismos numeros de spawn en cada posicion. int randomNum = Random.Range(0, leftSpawners.Length);
+        Debug.Log(prefabObject);
         if (prefabObject != null && prefabObject.prefab != null)
         {
             var prefab = Instantiate(prefabObject.prefab, spawner.position, spawner.rotation);
             InstantiateLetter newLetter = new InstantiateLetter();
-            newLetter.instanceLetter = letterObject.letter;
+            string targetLetter = letterObject.letter;
+            switch (targetLetter)
+            {
+                case "coma":
+                    targetLetter = ",";
+                    break;
+                case "dot":
+                    targetLetter = ".";
+                    break;
+                case "space":
+                    targetLetter = " ";
+                    break;
+            }
+            newLetter.instanceLetter = targetLetter;
             newLetter.instance = prefab;
             instancedBubbles.Add(newLetter);
         }

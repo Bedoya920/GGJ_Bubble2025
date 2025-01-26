@@ -776,6 +776,8 @@ MonoBehaviour:
     prefab: {fileID: 129419427211299586, guid: 116cbebce19746248a8110b3da2afc5c, type: 3}
   - letter: coma
     prefab: {fileID: 129419427211299586, guid: 358f7ee88c73c144e8f5d31f23fc508d, type: 3}
+  - letter: space
+    prefab: {fileID: 129419427211299586, guid: 0aa234a8ba870d744a45025cfac27e63, type: 3}
   instancedBubbles: []
 --- !u!4 &62400268
 Transform:
