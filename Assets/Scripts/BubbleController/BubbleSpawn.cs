@@ -4,6 +4,7 @@ using UnityEngine;
 using SignalSystem;
 using TMPro;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using UnityEditor.Experimental.GraphView;
 
 public class BubbleSpawn : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class BubbleSpawn : MonoBehaviour
     private int incorrectCount = 0;
     private int spawnedCounter = 0;
     public int streakCount = 0;
+    public GameObject healEffect; 
 
 
     void Update()
@@ -130,17 +132,17 @@ public class BubbleSpawn : MonoBehaviour
             correctCount++;
             streakCount++;
             Debug.Log($"Acierto: {letter}. Aciertos totales: {correctCount}");
-        }
-        else
+        } else
         {
             incorrectCount++;
+            DisableStreakUI();
             streakCount = 0;
             Debug.Log($"Error: {letter}. Errores totales: {incorrectCount}");
             bubblePlayer.TakeDamage();
-        }
+        } 
         Debug.Log($"Racha: {streakCount}.");
 
-        if (streakCount % 5 == 0)
+        if (streakCount % 5 == 0 && streakCount != 0)
         {
             StreakSystem();
         }
@@ -153,15 +155,54 @@ public class BubbleSpawn : MonoBehaviour
 
     public void StreakSystem()
     {
-   
-        int index = streakCount == 0 ? 0 : (streakCount / 5) - 1;
+
+        int index = streakCount == 0 ? 0 : ((streakCount - 1) % 25 / 5);
 
         if (index < objectsToActivate.Count && objectsToActivate[index] != null)
         {
             objectsToActivate[index].SetActive(true);
+            
+            if (index == objectsToActivate.Count - 1)
+            {
+                StartCoroutine(StreakEnumerator());
+                bubblePlayer.Heal();
+            }
 
         }
     }
+
+    private IEnumerator StreakEnumerator()
+    {
+        healEffect.SetActive(true);
+        Invoke("DisableHealEffect", 0.5f);
+        yield return new WaitForSeconds(1f);
+
+        foreach (GameObject item in objectsToActivate)
+        {
+
+            item.SetActive(false);
+
+        }
+
+    }
+
+    void DisableHealEffect()
+    {
+        healEffect.SetActive(false);
+    }
+
+    private void DisableStreakUI()
+    {
+        foreach (GameObject item in objectsToActivate)
+        {
+
+            item.SetActive(false);
+
+        }
+    }
+
+
+
 
     public void RemoveLetter(string letter)
     {
