@@ -10,6 +10,8 @@ public class BubbleSpawn : MonoBehaviour
     public Transform[] rightSpawners;
     public GameObject enemy;
 
+    public List<LetterPrefab> prefabList = new List<LetterPrefab>();
+
     void Start()
     {
 
@@ -43,6 +45,13 @@ public class BubbleSpawn : MonoBehaviour
             Instantiate(enemy, rightSpawners[randomNum].position, rightSpawners[randomNum].rotation);
         }
     }
+}
+
+[System.Serializable]
+public class LetterPrefab
+{
+    public string letter;
+    public GameObject prefab;
 }
 
 
