@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log("levelId" + levelID);
         bubbleManager.SelectLevel(levelID);
         StartCoroutine(bubbleManager.StartLevel());
+        Debug.Log("Empezamos");
         //StartCoroutine(StartTimer());
     }
 
@@ -55,13 +56,18 @@ public class LevelManager : MonoBehaviour
 
     public void Menu()
     {
+        PlayerPrefs.DeleteKey("levelId");
+        PlayerPrefs.DeleteKey("sceneIndex");
         SceneManager.LoadScene(0);
     }
 
     public void RestarLevel()
     {
+        //No respawnea más bubbles
+        
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+        
     }
 
     public void PauseGame()
