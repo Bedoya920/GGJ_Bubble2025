@@ -5,24 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MainMenu.unity
-    guid: e35faae215b9c104b82c8836b8ee84ff
-  - enabled: 0
-    path: Assets/Scenes/SamuelPruebas.unity
-    guid: 5aaecfbf0a4c951418c47fe064a00f2c
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: e35faae215b9c104b82c8836b8ee84ff
   - enabled: 1
-    path: Assets/Scenes/KLK.unity
-    guid: 906ddb14f81d2b049b7c3f886038b251
+    path: Assets/Scenes/Test/test1.unity
+    guid: dc19e52fe3ef0474bb803ae8c0b65f16
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: 816dde24529b2b746ac01673e38d4656
+    path: Assets/Scenes/Test/test2.unity
+    guid: f8868fff21589cd4a8928138ef727bcb
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
-    guid: 8677a2afa15ebf1428780e4212c7d403
+    path: Assets/Scenes/Test/test3.unity
+    guid: 227c193286d6a2c4786fbc5c6a92f737
   - enabled: 1
     path: Assets/Scenes/GameFinished.unity
     guid: 8ba0a40297acea34eb029256f1c39003
