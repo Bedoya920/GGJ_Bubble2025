@@ -10,6 +10,7 @@ namespace SignalSystem
         [Header("Letter information")]
         public LetterList[] letterPool;
         public LetterList levelInfo;
+        public bool isLoaded;
 
         [Header("Level information")]
         public LevelManager levelManager;
@@ -27,7 +28,7 @@ namespace SignalSystem
             {
                 string jsonContent = File.ReadAllText(path);
                 letterPool = JsonUtility.FromJson<LetterObjectArray>(jsonContent).eventList;
-                
+                isLoaded = true;               
             }
         }
 

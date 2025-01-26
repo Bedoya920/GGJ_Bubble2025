@@ -20,11 +20,6 @@ public class BubbleSpawn : MonoBehaviour
     private int correctCount = 0;
     private int incorrectCount = 0;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (Input.anyKeyDown)
@@ -37,7 +32,15 @@ public class BubbleSpawn : MonoBehaviour
                 CheckLetter(keyPressed);
             }
         }
-        CheckConditions();
+    }
+
+    private void LateUpdate()
+    {
+        if (letterController.isLoaded)
+        {
+            CheckConditions();
+        }
+        
     }
 
     private void CheckConditions()
