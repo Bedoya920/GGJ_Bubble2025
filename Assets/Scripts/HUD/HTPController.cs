@@ -38,7 +38,7 @@ public class HTPController : MonoBehaviour
         }
     }
 
-    void ResetSlides()
+    public void ResetSlides()
     {
         foreach(GameObject slide in slides)
         {
