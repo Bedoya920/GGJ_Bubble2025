@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     public void IncreaseScore(int streak)
     {
         float multiplier = Mathf.Min(1f + (streak * 0.1f), 3f);
-        int pointsEarnet = Mathf.RoundToInt(basePoints * multiplier);
+        int pointsEarnet = Mathf.RoundToInt(streak > 0 ? basePoints * multiplier : 0);
         score += pointsEarnet;
     }
     public void SetAccuracy(int correctCounter, int incorrectCounter)
