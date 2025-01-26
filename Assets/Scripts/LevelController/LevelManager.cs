@@ -25,10 +25,15 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("levelId" + levelID);
+        StopAllCoroutines();
+        Time.timeScale = 1.0f;
+        if (PlayerPrefs.GetInt("sceneIndex") > 0)
+        {
+            PlayerPrefs.SetInt("lastLevelId", levelID);
+            PlayerPrefs.Save();
+        }        
         bubbleManager.SelectLevel(levelID);
         StartCoroutine(bubbleManager.StartLevel());
-        Debug.Log("Empezamos");
         //StartCoroutine(StartTimer());
     }
 
@@ -41,6 +46,16 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.Save();
         SceneManager.LoadScene(PlayerPrefs.GetInt("sceneIndex"));
         Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));        
+    }
+
+    public void Continue()
+    {
+        
+        PlayerPrefs.SetInt("levelId", PlayerPrefs.GetInt("lastLevelId"));
+        PlayerPrefs.SetInt("sceneIndex", PlayerPrefs.GetInt("lastLevelId"));
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(PlayerPrefs.GetInt("sceneIndex"));
+        Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));
     }
 
     // Para probar mi rey
@@ -63,11 +78,10 @@ public class LevelManager : MonoBehaviour
 
     public void RestarLevel()
     {
-        //No respawnea más bubbles
-        
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
-        
+        bubbleManager.SelectLevel(levelID);
+        StartCoroutine(bubbleManager.StartLevel());
     }
 
     public void PauseGame()
