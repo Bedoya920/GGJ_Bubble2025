@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HUDManager : MonoBehaviour
 {
@@ -77,6 +78,19 @@ public class HUDManager : MonoBehaviour
         
     }
 
+    public void UpdateHealUI(int life)
+    {
+        if (life == 1)
+        {
+            livesCanvas[life].SetActive(true);
+        }
+        else if (life == 2)
+        {
+            livesCanvas[life].SetActive(true);
+        }
+
+    }
+
     public void GameOver()
     {
         gameOverCanvas.SetActive(true);
@@ -97,4 +111,9 @@ public class HUDManager : MonoBehaviour
     {
         pauseCanvas.SetActive(true);
     }
+
+    
+
+    
+
 }
