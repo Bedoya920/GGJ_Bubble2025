@@ -9,6 +9,7 @@ public class HTPController : MonoBehaviour
     int slideIndex;
     int currentScene;
     [SerializeField]GameObject countdownCanvas;
+    [SerializeField]LevelManager levelM;
 
     void Start()
     {
@@ -67,6 +68,7 @@ public class HTPController : MonoBehaviour
     {
         countdownCanvas.SetActive(true);
         this.gameObject.SetActive(false);
+        levelM.StartTimerButton();
 
     }
 }
