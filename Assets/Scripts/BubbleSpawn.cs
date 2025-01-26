@@ -14,16 +14,13 @@ public class BubbleSpawn : MonoBehaviour
     public LetterController letterController;
     public HUDManager hUDManager;
     public LevelManager levelManager;
+    public BubblePlayer bubblePlayer;
 
     public List<LetterPrefab> prefabList = new List<LetterPrefab>();
     public List<InstantiateLetter> instancedBubbles;
     private int correctCount = 0;
     private int incorrectCount = 0;
-
-    void Start()
-    {
-
-    }
+    private int streakCount = 0;
 
     void Update()
     {
@@ -37,7 +34,15 @@ public class BubbleSpawn : MonoBehaviour
                 CheckLetter(keyPressed);
             }
         }
-        CheckConditions();
+    }
+
+    private void LateUpdate()
+    {
+        if (letterController.isLoaded)
+        {
+            CheckConditions();
+        }
+        
     }
 
     private void CheckConditions()
@@ -97,13 +102,17 @@ public class BubbleSpawn : MonoBehaviour
             instancedBubbles.Remove(bubbleToRemove);
             Destroy(bubbleToRemove.instance);
             correctCount++;
+            streakCount++;
             Debug.Log($"Acierto: {letter}. Aciertos totales: {correctCount}");
         }
         else
         {
             incorrectCount++;
+            streakCount = 0;
             Debug.Log($"Error: {letter}. Errores totales: {incorrectCount}");
+            bubblePlayer.TakeDamage();
         }
+        Debug.Log($"Racha: {streakCount}.");
     }
 
     public void RemoveLetter(string letter)

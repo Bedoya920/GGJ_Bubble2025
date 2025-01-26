@@ -21,7 +21,6 @@ public class BubbleManager : MonoBehaviour
             letterController.SetLevelInfo(levelId);
             isActive = true;
         }
-        //mas cosas
     }
 
     public IEnumerator StartLevel() 
@@ -36,11 +35,7 @@ public class BubbleManager : MonoBehaviour
             {
                 isActive = false;
             }
-        }    
-        //Cuando finaliza el lvl?
+        }
     }
-
-
-
 
 }
