@@ -100,7 +100,6 @@ namespace SignalSystem
         {
             if (levelInfo.letters.Count == 0)
             {
-                //levelManager.nextLevel = true;
                 levelManager.NextScene();
             }
         }

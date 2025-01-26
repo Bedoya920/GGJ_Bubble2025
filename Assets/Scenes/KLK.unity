@@ -716,6 +716,7 @@ MonoBehaviour:
   letterController: {fileID: 2098753690}
   hUDManager: {fileID: 478530937}
   levelManager: {fileID: 1750909902}
+  bubblePlayer: {fileID: 2084572235}
   prefabList:
   - letter: a
     prefab: {fileID: 129419427211299586, guid: bed255d044c123a4a9c2b6a51aa635fb, type: 3}
@@ -6130,6 +6131,7 @@ MonoBehaviour:
   levelInfo:
     levelID: 0
     letters: []
+  isLoaded: 0
   levelManager: {fileID: 1750909902}
 --- !u!4 &2098753691
 Transform:
