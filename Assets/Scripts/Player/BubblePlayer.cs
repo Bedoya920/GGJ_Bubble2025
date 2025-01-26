@@ -25,8 +25,7 @@ public class BubblePlayer : MonoBehaviour
         
         if(life <= 0)
         {
-            Debug.Log("Perdiste");
-            Time.timeScale = 0f;
+            //Parte cuando pierde
             HUDManager.instance.GameOver();
             
         }
