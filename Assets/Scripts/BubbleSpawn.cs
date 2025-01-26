@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SignalSystem;
 using TMPro;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class BubbleSpawn : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class BubbleSpawn : MonoBehaviour
     public List<GameObject> objectsToActivate;
     private int correctCount = 0;
     private int incorrectCount = 0;
-    private int streakCount = 0;
+    public int streakCount = 0;
+
 
     void Update()
     {
@@ -135,6 +137,23 @@ public class BubbleSpawn : MonoBehaviour
         }
         Debug.Log($"Racha: {streakCount}.");
 
+        if (streakCount % 5 == 0)
+        {
+            StreakSystem();
+        }
+
+
+    }
+
+    public void StreakSystem()
+    {
+   
+        int index = (streakCount / 5) - 1;
+
+        if (index < objectsToActivate.Count && objectsToActivate[index] != null)
+        {
+            objectsToActivate[index].SetActive(true);
+        }
     }
 
     public void RemoveLetter(string letter)
