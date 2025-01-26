@@ -19,6 +19,7 @@ public class BubbleSpawn : MonoBehaviour
 
     public List<LetterPrefab> prefabList = new List<LetterPrefab>();
     public List<InstantiateLetter> instancedBubbles;
+    public List<GameObject> objectsToActivate;
     private int correctCount = 0;
     private int incorrectCount = 0;
     private int streakCount = 0;
@@ -133,6 +134,7 @@ public class BubbleSpawn : MonoBehaviour
             bubblePlayer.TakeDamage();
         }
         Debug.Log($"Racha: {streakCount}.");
+
     }
 
     public void RemoveLetter(string letter)
