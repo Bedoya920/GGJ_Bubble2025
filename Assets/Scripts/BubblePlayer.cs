@@ -28,6 +28,9 @@ public class BubblePlayer : MonoBehaviour
             
         }
         HUDManager.instance.HitEffect();
+        
+        CameraJiggle cameraJiggle = Camera.main.GetComponent<CameraJiggle>();
+        cameraJiggle.Jiggle(0.5f, 1f, 10);
 
         if(life == 2)
         {
