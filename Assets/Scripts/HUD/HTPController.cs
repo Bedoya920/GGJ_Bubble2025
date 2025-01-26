@@ -28,12 +28,14 @@ public class HTPController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex < 7 && currentScene == 0)
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
             slides[slideIndex].SetActive(false);
             slideIndex++;
             slides[slideIndex].SetActive(true);
             
             
         }else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex < 2 && currentScene != 0){
+            AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
             slides[slideIndex].SetActive(false);
             slideIndex++;
             slides[slideIndex].SetActive(true);
@@ -48,6 +50,7 @@ public class HTPController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.LeftArrow) && slideIndex > 0)
         {
             //lógica slide a la izquierda
+            AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
             slides[slideIndex].SetActive(false);
             slideIndex--;
             slides[slideIndex].SetActive(true);
