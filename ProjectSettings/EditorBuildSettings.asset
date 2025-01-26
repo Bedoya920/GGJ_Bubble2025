@@ -18,9 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/KLK.unity
     guid: 906ddb14f81d2b049b7c3f886038b251
   - enabled: 1
-    path: Assets/Scenes/KLK1.unity
-    guid: a4568214126533a49bcce7ee8f68c388
+    path: Assets/Scenes/Level2.unity
+    guid: 816dde24529b2b746ac01673e38d4656
   - enabled: 1
-    path: Assets/Scenes/KLK2.unity
-    guid: 7b202f4f6f6b22c4db230f356e4b823a
+    path: Assets/Scenes/Level3.unity
+    guid: 8677a2afa15ebf1428780e4212c7d403
+  - enabled: 1
+    path: Assets/Scenes/GameFinished.unity
+    guid: 8ba0a40297acea34eb029256f1c39003
   m_configObjects: {}

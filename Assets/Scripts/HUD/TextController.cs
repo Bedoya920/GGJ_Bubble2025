@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
-using System.Collections; // Necesario para trabajar con TextMeshProUGUI
+using System.Collections;
+using UnityEngine.UI; // Necesario para trabajar con TextMeshProUGUI
 
 public class TextController : MonoBehaviour
 {
@@ -13,14 +14,19 @@ public class TextController : MonoBehaviour
     [SerializeField] public TextMeshProUGUI remainingValue;
     [SerializeField] private TextMeshProUGUI accuracyValue;
 
+    [SerializeField] private Text accuracyText;
+    [SerializeField] private Text typedText;
+    [SerializeField] private Text failedText;
+
     public ScoreManager scoreManager;
 
     private void Start()
     {
-        gameObjectText.SetActive(false);
+        if (gameObjectText) {
+            gameObjectText.SetActive(false);
+        }
     }
 
-    // Método para hacer visible el texto gradualmente
     public void ShowTextWithFade(string newText)
     {
         if (myText != null)
@@ -66,6 +72,18 @@ public class TextController : MonoBehaviour
         scoreValue.text = scoreManager.score.ToString();
         remainingValue.text = scoreManager.remaining.ToString();
         accuracyValue.text = scoreManager.accuracy.ToString() + "%";
+    }
+
+    public void UpdateStatsCanvas()
+    {
+        int totalTyped = PlayerPrefs.GetInt("typedKeysLevel1") + PlayerPrefs.GetInt("typedKeysLevel2") + PlayerPrefs.GetInt("typedKeysLevel3");
+        int totalFailed = PlayerPrefs.GetInt("failedKeysLevel1") + PlayerPrefs.GetInt("failedKeysLevel2") + PlayerPrefs.GetInt("failedKeysLevel3");
+        Debug.Log($"{totalTyped}");
+        if (totalTyped > 0) {
+            accuracyText.text = $"{100 - (totalFailed * 100 / totalTyped)} %";
+            typedText.text = totalTyped.ToString();
+            failedText.text = totalFailed.ToString();
+        }
     }
 }
 

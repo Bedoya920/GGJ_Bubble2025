@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
     {
         StopAllCoroutines();
         Time.timeScale = 1.0f;
+        ResetScenePrefs();
         if (PlayerPrefs.GetInt("sceneIndex") > 0)
         {
             PlayerPrefs.SetInt("lastLevelId", levelID);
@@ -135,6 +136,28 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         NextScene();
 
+    }
+
+    private void ResetScenePrefs() 
+    {
+        switch (sceneIndex) 
+        {
+            case 1:
+                PlayerPrefs.SetInt("typedKeysLevel1", 0);
+                PlayerPrefs.SetInt("failedKeysLevel1", 0);
+                PlayerPrefs.Save();
+                break;
+            case 2:
+                PlayerPrefs.SetInt("typedKeysLevel2", 0);
+                PlayerPrefs.SetInt("failedKeysLevel2", 0);
+                PlayerPrefs.Save();
+                break;
+            case 3:
+                PlayerPrefs.SetInt("typedKeysLevel3", 0);
+                PlayerPrefs.SetInt("failedKeysLevel3", 0);
+                PlayerPrefs.Save();
+                break;
+        }        
     }
     public void StartTimerButton()
     {
