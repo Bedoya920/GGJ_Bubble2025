@@ -26,7 +26,7 @@ public class HTPController : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex < 2 && currentScene == 0)
+        if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex < 7 && currentScene == 0)
         {
             slides[slideIndex].SetActive(false);
             slideIndex++;
@@ -39,7 +39,7 @@ public class HTPController : MonoBehaviour
             slides[slideIndex].SetActive(true);
             
 
-        } else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex == 2 && currentScene == 0){
+        } else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex == 7 && currentScene == 0){
             Debug.Log("Hola");
             StartCountdown();
 

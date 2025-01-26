@@ -718,6 +718,7 @@ MonoBehaviour:
   levelManager: {fileID: 1750909902}
   bubblePlayer: {fileID: 2084572235}
   textController: {fileID: 143304226}
+  scoreManager: {fileID: 0}
   prefabList:
   - letter: a
     prefab: {fileID: 129419427211299586, guid: bed255d044c123a4a9c2b6a51aa635fb, type: 3}
@@ -780,6 +781,9 @@ MonoBehaviour:
   - letter: space
     prefab: {fileID: 129419427211299586, guid: 0aa234a8ba870d744a45025cfac27e63, type: 3}
   instancedBubbles: []
+  objectsToActivate: []
+  streakCount: 0
+  healEffect: {fileID: 0}
 --- !u!4 &62400268
 Transform:
   m_ObjectHideFlags: 0
@@ -1083,6 +1087,13 @@ MonoBehaviour:
   myText: {fileID: 361463823}
   gameObjectText: {fileID: 361463821}
   fadeDuration: 1
+  scoreValue: {fileID: 0}
+  remainingValue: {fileID: 0}
+  accuracyValue: {fileID: 0}
+  accuracyText: {fileID: 0}
+  typedText: {fileID: 0}
+  failedText: {fileID: 0}
+  scoreManager: {fileID: 0}
 --- !u!4 &143304227
 Transform:
   m_ObjectHideFlags: 0
@@ -6248,6 +6259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffeb882898cfadb499a11cd219320e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 3
   range: 28
   bubbleSpawn: {fileID: 62400267}
 --- !u!212 &2084572236
@@ -6334,9 +6346,12 @@ MonoBehaviour:
   letterPool: []
   levelInfo:
     levelID: 0
+    total: 0
     letters: []
+  total: 0
   isLoaded: 0
   levelManager: {fileID: 1750909902}
+  textController: {fileID: 0}
 --- !u!4 &2098753691
 Transform:
   m_ObjectHideFlags: 0

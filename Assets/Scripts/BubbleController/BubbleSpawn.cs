@@ -57,6 +57,24 @@ public class BubbleSpawn : MonoBehaviour
     {
         if (letterController.levelInfo.letters.Count == 0 && instancedBubbles.Count == 0 && hUDManager.livesCanvas.Length > 0)
         {
+            switch (PlayerPrefs.GetInt("sceneIndex"))
+            {
+                case 1:
+                    PlayerPrefs.SetInt("typedKeysLevel1", correctCount + incorrectCount);
+                    PlayerPrefs.SetInt("failedKeysLevel1", incorrectCount);
+                    PlayerPrefs.Save();
+                    break;
+                case 2:
+                    PlayerPrefs.SetInt("typedKeysLevel2", correctCount + incorrectCount);
+                    PlayerPrefs.SetInt("failedKeysLevel2", incorrectCount);
+                    PlayerPrefs.Save();
+                    break;
+                case 3:
+                    PlayerPrefs.SetInt("typedKeysLevel3", correctCount + incorrectCount);
+                    PlayerPrefs.SetInt("failedKeysLevel3", incorrectCount);
+                    PlayerPrefs.Save();
+                    break;
+            }
             levelManager.NextScene();
         }
     }

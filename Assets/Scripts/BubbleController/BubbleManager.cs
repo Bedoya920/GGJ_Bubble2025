@@ -32,8 +32,10 @@ public class BubbleManager : MonoBehaviour
             bubbleSpawn.SpawnLetter(currentLetter);
             letterController.SubstractPoolLetter(currentLetter.letter);
             yield return new WaitForSeconds(letterSpawnTime);
+            Debug.Log("Ya esperee");
             if (letterController.GetLetterCount() == 0)
             {
+                Debug.Log("Terminamos we");
                 isActive = false;
             }
         }
