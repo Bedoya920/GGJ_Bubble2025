@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager instance;
     public int levelID;
     public int sceneIndex;
 
@@ -19,6 +20,14 @@ public class LevelManager : MonoBehaviour
     public int totalTime = 10; 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject); // Evita duplicados eliminando esta instancia
+            return;
+        } else {
+            instance = this;
+        }
+        
         levelID = PlayerPrefs.GetInt("levelId");
         sceneIndex = PlayerPrefs.GetInt("sceneIndex");
     }
