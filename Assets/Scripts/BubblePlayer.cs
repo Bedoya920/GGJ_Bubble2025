@@ -9,6 +9,12 @@ public class BubblePlayer : MonoBehaviour
 
     public BubbleSpawn bubbleSpawn;
 
+    void Start()
+    {
+        range = 45f;
+        gameObject.transform.localScale = new Vector3(8, 8, 1);
+    }
+
     public void TakeDamage()
     {
         HUDManager.instance.UpdateUI(life);
@@ -22,6 +28,18 @@ public class BubblePlayer : MonoBehaviour
             
         }
         HUDManager.instance.HitEffect();
+
+        if(life == 2)
+        {
+            gameObject.transform.localScale = new Vector3(5, 5, 1);
+            range=35f;
+        }
+        if(life==1)
+        {
+            gameObject.transform.localScale = new Vector3(3, 3, 1);
+            range = 28f;
+
+        }
         //Animación de cambio o hit
     }
 
