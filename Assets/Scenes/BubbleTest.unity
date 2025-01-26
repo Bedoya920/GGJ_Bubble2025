@@ -1246,6 +1246,8 @@ MonoBehaviour:
     prefab: {fileID: 129419427211299586, guid: ac1f2407d15a4384a825ae50b1041337, type: 3}
   - letter: v
     prefab: {fileID: 129419427211299586, guid: a4d9da742abdb0a4dbe6602d65f21df8, type: 3}
+  - letter: w
+    prefab: {fileID: 129419427211299586, guid: b9fcd27679d8e9940a6784196775fdc4, type: 3}
   - letter: x
     prefab: {fileID: 129419427211299586, guid: 2819ee3760209384db188026d25e1f00, type: 3}
   - letter: y
