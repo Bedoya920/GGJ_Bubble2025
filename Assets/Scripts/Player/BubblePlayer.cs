@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BubblePlayer : MonoBehaviour
 {
-    int life = 3;
+    public int life = 3;
     public float range;
 
     public BubbleSpawn bubbleSpawn;
@@ -41,6 +41,31 @@ public class BubblePlayer : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(3, 3, 1);
             range = 28f;
+
+        }
+        //Animación de cambio o hit
+    }
+
+    public void Heal()
+    {
+        if(life > 2) 
+        {
+            return;        
+        }
+
+        HUDManager.instance.UpdateHealUI(life);
+
+        life++;
+
+        if (life == 2)
+        {
+            gameObject.transform.localScale = new Vector3(5, 5, 1);
+            range = 35f;
+        }
+        if (life == 3)
+        {
+            gameObject.transform.localScale = new Vector3(8, 8, 1);
+            range = 45f;
 
         }
         //Animación de cambio o hit

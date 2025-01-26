@@ -7,6 +7,7 @@ public class BubbleManager : MonoBehaviour
 {
     [Header("Bubble Variables")]
     public bool isActive;
+    public float letterSpawnTime;
 
     [Header("Game components")]
     public LetterController letterController;
@@ -30,7 +31,7 @@ public class BubbleManager : MonoBehaviour
             currentLetter = letterController.levelInfo.letters[0];
             bubbleSpawn.SpawnLetter(currentLetter);
             letterController.SubstractPoolLetter(currentLetter.letter);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(letterSpawnTime);
             if (letterController.GetLetterCount() == 0)
             {
                 isActive = false;

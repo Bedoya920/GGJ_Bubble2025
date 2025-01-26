@@ -5,6 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/MainMenu.unity
+    guid: e35faae215b9c104b82c8836b8ee84ff
+  - enabled: 0
+    path: Assets/Scenes/SamuelPruebas.unity
+    guid: 5aaecfbf0a4c951418c47fe064a00f2c
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: e35faae215b9c104b82c8836b8ee84ff
@@ -17,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KLK2.unity
     guid: 7b202f4f6f6b22c4db230f356e4b823a
-  - enabled: 1
-    path: Assets/Scenes/SamuelPruebas.unity
-    guid: 5aaecfbf0a4c951418c47fe064a00f2c
   m_configObjects: {}
