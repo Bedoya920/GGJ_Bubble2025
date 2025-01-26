@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/SamuelPruebas.unity
     guid: 5aaecfbf0a4c951418c47fe064a00f2c
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/MainMenu.unity
+    guid: e35faae215b9c104b82c8836b8ee84ff
   - enabled: 1
     path: Assets/Scenes/KLK.unity
     guid: 906ddb14f81d2b049b7c3f886038b251

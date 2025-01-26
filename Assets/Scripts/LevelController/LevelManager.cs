@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log("levelId" + levelID);
         bubbleManager.SelectLevel(levelID);
         StartCoroutine(bubbleManager.StartLevel());
-        StartCoroutine(StartTimer());
+        //StartCoroutine(StartTimer());
     }
 
     public void NextScene()
@@ -83,15 +83,15 @@ public class LevelManager : MonoBehaviour
             string coloredText = "";
             for (int i = 0; i < timerString.Length; i++)
             {
-                if (i == timerString.Length - 1) // Solo el último dígito (el de la derecha)
+                if (i == timerString.Length - 1) // Solo el ï¿½ltimo dï¿½gito (el de la derecha)
                 {
-                    // Asigna un color de la lista al dígito que cambia
+                    // Asigna un color de la lista al dï¿½gito que cambia
                     Color color = colors[timeLeft % colors.Count]; // Usa el tiempo restante para elegir el color
                     coloredText += $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{timerString[i]}</color>";
                 }
                 else
                 {
-                    // El otro dígito permanece con el color predeterminado (blanco o el que tenga el texto)
+                    // El otro dï¿½gito permanece con el color predeterminado (blanco o el que tenga el texto)
                     coloredText += timerString[i];
                 }
             }
@@ -100,15 +100,19 @@ public class LevelManager : MonoBehaviour
             timerText.text = coloredText;
 
             
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
 
             
             timeLeft--;
         }
 
         yield return new WaitForSeconds(1f);
-        //NextScene();
+        NextScene();
 
+    }
+    public void StartTimerButton()
+    {
+        StartCoroutine(StartTimer());
     }
 
 }
