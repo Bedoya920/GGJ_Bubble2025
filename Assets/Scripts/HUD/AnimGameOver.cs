@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class AnimGameOver : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void CallPause()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        LevelManager.instance.PauseGame();
     }
 }

@@ -1405,6 +1405,9 @@ MonoBehaviour:
   scoreValue: {fileID: 1169918405}
   remainingValue: {fileID: 1276642999}
   accuracyValue: {fileID: 2088085196}
+  accuracyText: {fileID: 0}
+  typedText: {fileID: 0}
+  failedText: {fileID: 0}
   scoreManager: {fileID: 1971535135}
 --- !u!4 &234411105
 Transform:
@@ -7200,8 +7203,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -212}
-  m_SizeDelta: {x: 912.4404, y: 200}
+  m_AnchoredPosition: {x: 0, y: -161.5}
+  m_SizeDelta: {x: 912.4404, y: 99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1755349515
 Animator:
@@ -8127,6 +8130,7 @@ GameObject:
   - component: {fileID: 2145008546}
   - component: {fileID: 2145008545}
   - component: {fileID: 2145008544}
+  - component: {fileID: 2145008547}
   m_Layer: 5
   m_Name: Fondo
   m_TagString: Untagged
@@ -8209,6 +8213,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145008542}
   m_CullTransparentMesh: 1
+--- !u!114 &2145008547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145008542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366006202afa444468a9c03bea49c468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
