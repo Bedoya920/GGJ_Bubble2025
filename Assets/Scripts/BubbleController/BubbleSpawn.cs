@@ -144,6 +144,7 @@ public class BubbleSpawn : MonoBehaviour
 
         if (bubbleToRemove != null)
         {
+            AudioManager.instance.PlayRandomAudio();
             instancedBubbles.Remove(bubbleToRemove);
             Destroy(bubbleToRemove.instance);
             spawnedCounter += 1;
