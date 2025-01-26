@@ -740,6 +740,12 @@ MonoBehaviour:
   - {fileID: 944259497}
   streakCount: 0
   healEffect: {fileID: 1061557752}
+  animBubble:
+  - {fileID: 3547535128617310888, guid: e8234deff020f134297206fa756a1d47, type: 3}
+  - {fileID: 2603775769412058512, guid: 500796052f15bc349bb28997530a8457, type: 3}
+  - {fileID: 3577437186811679399, guid: aa07c54c9e58d0b429f5b756f07fb386, type: 3}
+  - {fileID: 8182335645917601325, guid: 9eed1089533e9fc499c9a3bbf4d8c0ba, type: 3}
+  - {fileID: 2033699180922117429, guid: bce8eb397588c5546816112b58787775, type: 3}
 --- !u!4 &62400268
 Transform:
   m_ObjectHideFlags: 0
@@ -7211,9 +7217,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 356569472}
   SFXSource: {fileID: 840454384}
-  music: {fileID: 8300000, guid: d95eb54e5e4c2c2428b57514ccef1a93, type: 3}
+  music: {fileID: 8300000, guid: 3a31f6f401b38a041a4881cb292ab5cf, type: 3}
   audioBubbleClips:
   - {fileID: 8300000, guid: b8e1b8e0ecefe9146aabfb296705db62, type: 3}
+  - {fileID: 8300000, guid: e9606974a6d06f9419ebda1c16050ef8, type: 3}
+  - {fileID: 8300000, guid: 7c2c68e709853af4698d785ed6fcae60, type: 3}
   failureSound: {fileID: 8300000, guid: 5ad24375a6c61434a976fef49cfd8194, type: 3}
   healSound: {fileID: 8300000, guid: 3ab4373273922b04dbe546c1f6be4923, type: 3}
   buttom: {fileID: 8300000, guid: 217bf1bef93036746b86256424206ea4, type: 3}
