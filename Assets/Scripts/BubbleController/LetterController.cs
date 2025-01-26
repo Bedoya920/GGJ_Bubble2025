@@ -10,10 +10,12 @@ namespace SignalSystem
         [Header("Letter information")]
         public LetterList[] letterPool;
         public LetterList levelInfo;
+        public int total;
         public bool isLoaded;
 
         [Header("Level information")]
         public LevelManager levelManager;
+        public TextController textController;
 
         private void Awake()
         {
@@ -41,6 +43,8 @@ namespace SignalSystem
                 if (letterList.levelID == targetLevelID)
                 {
                     levelInfo = letterList;
+                    total = levelInfo.total;
+                    textController.remainingValue.text = total.ToString();
                     Debug.Log("Encontro el listado del nivel");
                     return;
                 }
@@ -118,6 +122,7 @@ namespace SignalSystem
     public class LetterList
     {
         public int levelID;
+        public int total;
         public List<LetterObject> letters;
     }
 

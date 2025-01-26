@@ -9,6 +9,12 @@ public class TextController : MonoBehaviour
     [SerializeField] private GameObject gameObjectText;
     [SerializeField] private float fadeDuration = 1f;
 
+    [SerializeField] private TextMeshProUGUI scoreValue;
+    [SerializeField] public TextMeshProUGUI remainingValue;
+    [SerializeField] private TextMeshProUGUI accuracyValue;
+
+    public ScoreManager scoreManager;
+
     private void Start()
     {
         gameObjectText.SetActive(false);
@@ -53,6 +59,13 @@ public class TextController : MonoBehaviour
             yield return null;
         }
         gameObjectText.SetActive(false);
+    }
+
+    public void UpdateCanvasScore() 
+    {
+        scoreValue.text = scoreManager.score.ToString();
+        remainingValue.text = scoreManager.remaining.ToString();
+        accuracyValue.text = scoreManager.accuracy.ToString() + "%";
     }
 }
 

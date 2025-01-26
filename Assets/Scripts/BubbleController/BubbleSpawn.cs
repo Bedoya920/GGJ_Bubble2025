@@ -17,12 +17,14 @@ public class BubbleSpawn : MonoBehaviour
     public LevelManager levelManager;
     public BubblePlayer bubblePlayer;
     public TextController textController;
+    public ScoreManager scoreManager;
 
     public List<LetterPrefab> prefabList = new List<LetterPrefab>();
     public List<InstantiateLetter> instancedBubbles;
     public List<GameObject> objectsToActivate;
     private int correctCount = 0;
     private int incorrectCount = 0;
+    private int spawnedCounter = 0;
     public int streakCount = 0;
 
 
@@ -124,6 +126,7 @@ public class BubbleSpawn : MonoBehaviour
         {
             instancedBubbles.Remove(bubbleToRemove);
             Destroy(bubbleToRemove.instance);
+            spawnedCounter += 1;
             correctCount++;
             streakCount++;
             Debug.Log($"Acierto: {letter}. Aciertos totales: {correctCount}");
@@ -142,13 +145,16 @@ public class BubbleSpawn : MonoBehaviour
             StreakSystem();
         }
 
-
+        scoreManager.IncreaseScore(streakCount);
+        scoreManager.SetAccuracy(correctCount, incorrectCount);
+        scoreManager.SetRemaining(spawnedCounter, letterController.total);
+        textController.UpdateCanvasScore();
     }
 
     public void StreakSystem()
     {
    
-        int index = (streakCount / 5) - 1;
+        int index = streakCount == 0 ? 0 : (streakCount / 5) - 1;
 
         if (index < objectsToActivate.Count && objectsToActivate[index] != null)
         {
@@ -164,6 +170,10 @@ public class BubbleSpawn : MonoBehaviour
         {
             instancedBubbles.Remove(bubbleToRemove);
             Destroy(bubbleToRemove.instance);
+            spawnedCounter += 1;
+            incorrectCount++;
+            scoreManager.SetRemaining(spawnedCounter, letterController.total);
+            textController.UpdateCanvasScore();
         }
     }
 }
