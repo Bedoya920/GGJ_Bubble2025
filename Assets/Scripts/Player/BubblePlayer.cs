@@ -36,12 +36,12 @@ public class BubblePlayer : MonoBehaviour
         if(life == 2)
         {
             gameObject.transform.localScale = new Vector3(5, 5, 1);
-            range=35f;
+            range = 30f;
         }
         if(life==1)
         {
             gameObject.transform.localScale = new Vector3(3, 3, 1);
-            range = 28f;
+            range = 25f;
 
         }
         //Animación de cambio o hit
