@@ -8,6 +8,7 @@ public class BubblePlayer : MonoBehaviour
     public float range;
 
     public BubbleSpawn bubbleSpawn;
+    public GameObject muerteAnim;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class BubblePlayer : MonoBehaviour
         if(life <= 0)
         {
             //Parte cuando pierde
+            muerteAnim.SetActive(true);
             HUDManager.instance.GameOver();
             
         }
