@@ -7500,6 +7500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuCanva: {fileID: 962984510}
+  levelManager: {fileID: 1750909902}
 --- !u!114 &1691801634
 MonoBehaviour:
   m_ObjectHideFlags: 0
