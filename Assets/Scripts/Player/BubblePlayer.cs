@@ -19,7 +19,6 @@ public class BubblePlayer : MonoBehaviour
     {
         if (life > 0) {
             HUDManager.instance.UpdateUI(life);
-
             life--;
         }
         
