@@ -100,3 +100,4 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 0.5
   rangeEnemy: 0
+  letter: z

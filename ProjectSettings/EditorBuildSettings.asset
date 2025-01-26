@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/BubbleTest.unity
-    guid: dfbd5318b1e81c147a920dbe4be94b4c
+    path: Assets/Scenes/KLK.unity
+    guid: 906ddb14f81d2b049b7c3f886038b251
+  - enabled: 1
+    path: Assets/Scenes/KLK1.unity
+    guid: a4568214126533a49bcce7ee8f68c388
+  - enabled: 1
+    path: Assets/Scenes/KLK2.unity
+    guid: 7b202f4f6f6b22c4db230f356e4b823a
   - enabled: 1
     path: Assets/Scenes/SamuelPruebas.unity
     guid: 5aaecfbf0a4c951418c47fe064a00f2c

@@ -1,3 +1,4 @@
+using SignalSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,9 @@ public class LevelManager : MonoBehaviour
     public int sceneIndex;
 
     public BubbleManager bubbleManager;
-
+    public LetterController letterController;
+    public BubbleSpawn bubbleSpawn;
+    
     private void Awake()
     {
         levelID = PlayerPrefs.GetInt("levelId");
