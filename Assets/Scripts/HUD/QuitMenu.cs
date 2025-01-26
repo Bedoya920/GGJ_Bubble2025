@@ -10,7 +10,7 @@ public class QuitMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.RightArrow))
         {
-            //Salir juego
+            Application.Quit();
         }
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
