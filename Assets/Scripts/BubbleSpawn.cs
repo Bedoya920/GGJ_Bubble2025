@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SignalSystem;
-using System.Linq;
+using TMPro;
 
 public class BubbleSpawn : MonoBehaviour
 {
@@ -15,9 +15,11 @@ public class BubbleSpawn : MonoBehaviour
     public HUDManager hUDManager;
     public LevelManager levelManager;
     public BubblePlayer bubblePlayer;
+    public TextController textController;
 
     public List<LetterPrefab> prefabList = new List<LetterPrefab>();
     public List<InstantiateLetter> instancedBubbles;
+    public List<GameObject> objectsToActivate;
     private int correctCount = 0;
     private int incorrectCount = 0;
     private int streakCount = 0;
@@ -76,17 +78,21 @@ public class BubbleSpawn : MonoBehaviour
 
         if (spawner != null)
         {
-            InstantiatePrefab(letterObject, spawner);
+            StartCoroutine(InstantiatePrefab(letterObject, spawner));
         }
     }
 
-    private void InstantiatePrefab(LetterObject letterObject, Transform spawner)
+    private IEnumerator InstantiatePrefab(LetterObject letterObject, Transform spawner)
     { 
         Debug.Log("Buscando" + letterObject.letter);
         var prefabObject = prefabList.Find(element => element.letter == letterObject.letter);
         Debug.Log(prefabObject);
         if (prefabObject != null && prefabObject.prefab != null)
         {
+            if (letterObject.specialCharacter) {
+                textController.ShowTextWithFade("Se acerca un caracter especial!");
+                yield return new WaitForSeconds(1f);
+            }
             var prefab = Instantiate(prefabObject.prefab, spawner.position, spawner.rotation);
             InstantiateLetter newLetter = new InstantiateLetter();
             string targetLetter = letterObject.letter;
@@ -106,6 +112,7 @@ public class BubbleSpawn : MonoBehaviour
             newLetter.instance = prefab;
             instancedBubbles.Add(newLetter);
         }
+        yield return null;
     }
     public void CheckLetter(string letter)
     {
@@ -127,6 +134,7 @@ public class BubbleSpawn : MonoBehaviour
             bubblePlayer.TakeDamage();
         }
         Debug.Log($"Racha: {streakCount}.");
+
     }
 
     public void RemoveLetter(string letter)
