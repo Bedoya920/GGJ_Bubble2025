@@ -2,6 +2,7 @@
     "eventList": [
         {
             "levelID": 1,
+            "total": 68, 
             "letters": [
                 {
                     "letter": "a",
@@ -122,6 +123,7 @@
         },
         {
             "levelID": 2,
+            "total": 114,
             "letters": [
                 {
                     "letter": "a",
@@ -272,6 +274,7 @@
         },
         {
             "levelID": 3,
+            "total": 173,
             "letters": [
                 {
                     "letter": "a",
