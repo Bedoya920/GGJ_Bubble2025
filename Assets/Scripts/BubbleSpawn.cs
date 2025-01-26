@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SignalSystem;
+using System.Linq;
 
 public class BubbleSpawn : MonoBehaviour
 {
@@ -8,18 +10,41 @@ public class BubbleSpawn : MonoBehaviour
     public Transform[] leftSpawners;
     public Transform[] rightSpawners;
     public GameObject enemy;
+    public bool isFinished;
+    public LetterController letterController;
+    public HUDManager hUDManager;
+    public LevelManager levelManager;
+
+    public List<LetterPrefab> prefabList = new List<LetterPrefab>();
+    public List<InstantiateLetter> instancedBubbles;
+    private int correctCount = 0;
+    private int incorrectCount = 0;
 
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.anyKeyDown)
         {
-            RandomSpawner();
+            // Obtener la tecla presionada
+            string keyPressed = Input.inputString.ToLower();
+
+            if (!string.IsNullOrEmpty(keyPressed))
+            {
+                CheckLetter(keyPressed);
+            }
+        }
+        CheckConditions();
+    }
+
+    private void CheckConditions()
+    {
+        if (letterController.levelInfo.letters.Count == 0 && instancedBubbles.Count == 0 && hUDManager.livesCanvas.Length > 0)
+        {
+            levelManager.NextScene();
         }
     }
 
@@ -29,19 +54,82 @@ public class BubbleSpawn : MonoBehaviour
         Instantiate(enemy, spawners[randomNum].position, spawners[randomNum].rotation);
     }
 
-    public void SpawnLetter(string position)
+    public void SpawnLetter(LetterObject letterObject)
     {
-        // si definimos los mismos numeros de spawn en cada posicion. int randomNum = Random.Range(0, leftSpawners.Length);
-        if (position == "left")
+        Transform spawner = null;
+
+        if (letterObject.position == "left")
         {
             int randomNum = Random.Range(0, leftSpawners.Length);
-            Instantiate(enemy, leftSpawners[randomNum].position, leftSpawners[randomNum].rotation);
+            spawner = leftSpawners[randomNum];
         }
-        else if (position == "right") {
+        else if (letterObject.position == "right")
+        {
             int randomNum = Random.Range(0, rightSpawners.Length);
-            Instantiate(enemy, rightSpawners[randomNum].position, rightSpawners[randomNum].rotation);
+            spawner = rightSpawners[randomNum];
+        }
+
+        if (spawner != null)
+        {
+            InstantiatePrefab(letterObject, spawner);
         }
     }
+
+    private void InstantiatePrefab(LetterObject letterObject, Transform spawner)
+    {
+        var prefabObject = prefabList.Find(element => element.letter == letterObject.letter);
+        // si definimos los mismos numeros de spawn en cada posicion. int randomNum = Random.Range(0, leftSpawners.Length);
+        if (prefabObject != null && prefabObject.prefab != null)
+        {
+            var prefab = Instantiate(prefabObject.prefab, spawner.position, spawner.rotation);
+            InstantiateLetter newLetter = new InstantiateLetter();
+            newLetter.instanceLetter = letterObject.letter;
+            newLetter.instance = prefab;
+            instancedBubbles.Add(newLetter);
+        }
+    }
+    public void CheckLetter(string letter)
+    {
+        var bubbleToRemove = instancedBubbles.Find(bubble => bubble.instanceLetter  == letter);
+
+        if (bubbleToRemove != null)
+        {
+            instancedBubbles.Remove(bubbleToRemove);
+            Destroy(bubbleToRemove.instance);
+            correctCount++;
+            Debug.Log($"Acierto: {letter}. Aciertos totales: {correctCount}");
+        }
+        else
+        {
+            incorrectCount++;
+            Debug.Log($"Error: {letter}. Errores totales: {incorrectCount}");
+        }
+    }
+
+    public void RemoveLetter(string letter)
+    {
+        var bubbleToRemove = instancedBubbles.Find(bubble => bubble.instanceLetter == letter);
+
+        if (bubbleToRemove != null)
+        {
+            instancedBubbles.Remove(bubbleToRemove);
+            Destroy(bubbleToRemove.instance);
+        }
+    }
+}
+
+[System.Serializable]
+public class LetterPrefab
+{
+    public string letter;
+    public GameObject prefab;
+}
+
+[System.Serializable]
+public class InstantiateLetter
+{
+    public string instanceLetter;
+    public GameObject instance;
 }
 
 

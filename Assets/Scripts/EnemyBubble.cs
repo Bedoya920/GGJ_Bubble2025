@@ -7,6 +7,7 @@ public class EnemyBubble : MonoBehaviour
     public Transform player;
     [SerializeField] float speed;
     [SerializeField] float rangeEnemy;
+    [SerializeField] string letter;
 
     void Awake()
     {
@@ -15,7 +16,6 @@ public class EnemyBubble : MonoBehaviour
         {
             rangeEnemy = target.GetComponent<BubblePlayer>().range;
             player = target.transform;
-            
         }
     }
 
@@ -31,7 +31,7 @@ public class EnemyBubble : MonoBehaviour
         {
             //Agregar lógica de muerte
             player.gameObject.GetComponent<BubblePlayer>().TakeDamage();
-            Destroy(gameObject);
+            player.gameObject.GetComponent<BubblePlayer>().DeleteLetter(letter);
         }
         
     }

@@ -14,9 +14,8 @@ namespace SignalSystem
         [Header("Level information")]
         public LevelManager levelManager;
 
-        void Start()
+        private void Awake()
         {
-            //LoadEventsFromFile("Assets/Data/signals.json");
             string path = Path.Combine(Application.streamingAssetsPath, "events.json");
             LoadEventsFromFile(path);
             levelInfo = null;
@@ -34,17 +33,20 @@ namespace SignalSystem
 
         public void SetLevelInfo(int targetLevelID)
         {
-           
+            Debug.Log(targetLevelID);
+            Debug.Log("Longitud array" + letterPool.Length);
             foreach (var letterList in letterPool)
             {
                 if (letterList.levelID == targetLevelID)
                 {
                     levelInfo = letterList;
+                    Debug.Log("Encontro el listado del nivel");
                     return;
                 }
             }
 
             levelInfo = null;
+            Debug.Log("No encontro el listado del nivel");
             Debug.LogWarning($"Level with ID {targetLevelID} not found in the letter pool.");
 
         }
@@ -97,7 +99,8 @@ namespace SignalSystem
         {
             if (levelInfo.letters.Count == 0)
             {
-                levelManager.nextLevel = true;
+                //levelManager.nextLevel = true;
+                levelManager.NextScene();
             }
         }
 

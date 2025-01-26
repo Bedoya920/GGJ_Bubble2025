@@ -7,16 +7,7 @@ public class BubblePlayer : MonoBehaviour
     int life = 3;
     public float range;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public BubbleSpawn bubbleSpawn;
 
     public void TakeDamage()
     {
@@ -32,6 +23,10 @@ public class BubblePlayer : MonoBehaviour
         }
         HUDManager.instance.HitEffect();
         //Animación de cambio o hit
+    }
+
+    public void DeleteLetter(string letter) {
+        bubbleSpawn.RemoveLetter(letter);
     }
 
     
