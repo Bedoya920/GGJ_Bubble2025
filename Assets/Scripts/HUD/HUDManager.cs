@@ -5,10 +5,16 @@ using UnityEngine;
 public class HUDManager : MonoBehaviour
 {
     public static HUDManager instance;
+
+    [Header("Canvas")]
     public GameObject[] livesCanvas;
     public GameObject gameOverCanvas;
+    public GameObject pauseCanvas;
+
 
     public GameObject hitEffect;
+
+    public bool isPaused = false;
     
 
 
@@ -26,6 +32,38 @@ public class HUDManager : MonoBehaviour
     void Update()
     {
         
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause(); 
+        }
+    }
+
+    void TogglePause()
+    {
+        if (isPaused)
+        {
+            ResumeGame(); 
+        }
+        else
+        {
+            PauseGame(); 
+        }
+    }
+
+    void PauseGame()
+    {
+        Time.timeScale = 0; 
+        isPaused = true; 
+        pauseCanvas.SetActive(true);
+        Debug.Log("Juego pausado");
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1; 
+        isPaused = false; 
+        pauseCanvas.SetActive(false);
+        Debug.Log("Juego reanudado");
     }
 
     public void UpdateUI(int life)
@@ -53,5 +91,10 @@ public class HUDManager : MonoBehaviour
     void DisableHitEffect()
     {
         hitEffect.SetActive(false);
+    }
+
+    void ShowPause()
+    {
+        pauseCanvas.SetActive(true);
     }
 }

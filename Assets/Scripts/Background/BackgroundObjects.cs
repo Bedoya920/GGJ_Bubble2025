@@ -14,7 +14,11 @@ public class BackgroundObjects : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.down * speed;
+        if(HUDManager.instance.isPaused == false)
+        {
+            transform.position += Vector3.down * speed;
+        }
+        
     }
 
 }
