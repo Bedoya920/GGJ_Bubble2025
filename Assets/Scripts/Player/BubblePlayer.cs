@@ -17,9 +17,12 @@ public class BubblePlayer : MonoBehaviour
 
     public void TakeDamage()
     {
-        HUDManager.instance.UpdateUI(life);
+        if (life > 0) {
+            HUDManager.instance.UpdateUI(life);
+
+            life--;
+        }
         
-        life--;
         if(life <= 0)
         {
             Debug.Log("Perdiste");
