@@ -6,6 +6,7 @@ using TMPro;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using UnityEditor.Experimental.GraphView;
 
+
 public class BubbleSpawn : MonoBehaviour
 {
     public Transform[] spawners;
@@ -27,7 +28,9 @@ public class BubbleSpawn : MonoBehaviour
     private int incorrectCount = 0;
     private int spawnedCounter = 0;
     public int streakCount = 0;
-    public GameObject healEffect; 
+    public GameObject healEffect;
+    public GameObject[] animBubble;
+    private int randomIndex;
 
 
     void Update()
@@ -153,11 +156,13 @@ public class BubbleSpawn : MonoBehaviour
             return;
         }
 
-        var bubbleToRemove = instancedBubbles.Find(bubble => bubble.instanceLetter  == letter);
+        InstantiateLetter bubbleToRemove = instancedBubbles.Find(bubble => bubble.instanceLetter  == letter);
 
         if (bubbleToRemove != null)
         {
             AudioManager.instance.PlayRandomAudio();
+            AnimRandom();
+            Instantiate(animBubble[randomIndex], bubbleToRemove.instance.gameObject.transform.position, bubbleToRemove.instance.gameObject.transform.rotation);
             instancedBubbles.Remove(bubbleToRemove);
             Destroy(bubbleToRemove.instance);
             spawnedCounter += 1;
@@ -251,6 +256,23 @@ public class BubbleSpawn : MonoBehaviour
             incorrectCount++;
             scoreManager.SetRemaining(spawnedCounter, letterController.total);
             textController.UpdateCanvasScore();
+        }
+    }
+
+    public void AnimRandom()
+    {
+        if (animBubble.Length > 0)
+        {
+
+            randomIndex = Random.Range(0, animBubble.Length);
+
+
+            
+            
+        }
+        else
+        {
+            Debug.LogWarning("No hay GameObjects en la lista.");
         }
     }
 }
