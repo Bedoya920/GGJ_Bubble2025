@@ -5,12 +5,13 @@ using UnityEngine;
 public class QuitMenu : MonoBehaviour
 {
     public GameObject menuCanva;
+    public LevelManager levelManager;
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.RightArrow))
         {
-            Application.Quit();
+            levelManager.Menu();
         }
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
