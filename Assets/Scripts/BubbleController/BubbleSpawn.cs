@@ -19,6 +19,8 @@ public class BubbleSpawn : MonoBehaviour
     public BubblePlayer bubblePlayer;
     public TextController textController;
     public ScoreManager scoreManager;
+    public NextLevelMenu nextLevelMenu;
+    public BubbleManager bubbleManager;
 
     public List<LetterPrefab> prefabList = new List<LetterPrefab>();
     public List<InstantiateLetter> instancedBubbles;
@@ -77,11 +79,13 @@ public class BubbleSpawn : MonoBehaviour
                     PlayerPrefs.Save();
                     break;
             }
-            levelManager.NextScene();
+            PlayerPrefs.SetInt("lastLevelId", levelManager.levelID + 1);
+            bubbleManager.isActive = false;
+            nextLevelMenu.gameObject.SetActive(true);
         }
     }
 
-    void RandomSpawner() //Poner parametro para la letra o pasar el prefab al spawner
+    void RandomSpawner()
     {
         int randomNum = Random.Range(0, spawners.Length);
         Instantiate(enemy, spawners[randomNum].position, spawners[randomNum].rotation);
@@ -116,7 +120,8 @@ public class BubbleSpawn : MonoBehaviour
         if (prefabObject != null && prefabObject.prefab != null)
         {
             if (letterObject.specialCharacter) {
-                textController.ShowTextWithFade("Se acerca un caracter especial!");
+                textController.ShowTextWithFade("A special character is approaching!");
+                Debug.Log(letterController.levelInfo.letters.Count == 0 && instancedBubbles.Count == 0 && hUDManager.livesCanvas.Length > 0);
                 yield return new WaitForSeconds(1f);
             }
             var prefab = Instantiate(prefabObject.prefab, spawner.position, spawner.rotation);
@@ -150,7 +155,7 @@ public class BubbleSpawn : MonoBehaviour
                 lifesCount++;
             }
         }
-        if (lifesCount == 0)
+        if (lifesCount == 0 || !bubbleManager.isActive)
         {
             return;
         }
