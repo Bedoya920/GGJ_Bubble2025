@@ -25,13 +25,14 @@ public class BubbleSpawn : MonoBehaviour
     public List<LetterPrefab> prefabList = new List<LetterPrefab>();
     public List<InstantiateLetter> instancedBubbles;
     public List<GameObject> objectsToActivate;
-    private int correctCount = 0;
-    private int incorrectCount = 0;
-    private int spawnedCounter = 0;
+    public int correctCount = 0;
+    public int incorrectCount = 0;
+    public int spawnedCounter = 0;
     public int streakCount = 0;
     public GameObject healEffect;
     public GameObject[] animBubble;
     private int randomIndex;
+    private bool isSpawning;
 
 
     void Update()
@@ -59,7 +60,7 @@ public class BubbleSpawn : MonoBehaviour
 
     private void CheckConditions()
     {
-        if (letterController.levelInfo.letters.Count == 0 && instancedBubbles.Count == 0 && hUDManager.livesCanvas.Length > 0)
+        if (letterController.levelInfo.letters.Count == 0 && instancedBubbles.Count == 0 && hUDManager.livesCanvas.Length > 0 && !isSpawning && bubblePlayer.life > 0 && !bubblePlayer.isTakingDamage)
         {
             switch (PlayerPrefs.GetInt("sceneIndex"))
             {
@@ -119,6 +120,7 @@ public class BubbleSpawn : MonoBehaviour
         Debug.Log(prefabObject);
         if (prefabObject != null && prefabObject.prefab != null)
         {
+            isSpawning = true;
             if (letterObject.specialCharacter) {
                 textController.ShowTextWithFade("A special character is approaching!");
                 Debug.Log(letterController.levelInfo.letters.Count == 0 && instancedBubbles.Count == 0 && hUDManager.livesCanvas.Length > 0);
@@ -142,6 +144,7 @@ public class BubbleSpawn : MonoBehaviour
             newLetter.instanceLetter = targetLetter;
             newLetter.instance = prefab;
             instancedBubbles.Add(newLetter);
+            isSpawning = false;
         }
         yield return null;
     }
@@ -176,10 +179,6 @@ public class BubbleSpawn : MonoBehaviour
         } else
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.failureSound);
-            incorrectCount++;
-            DisableStreakUI();
-            streakCount = 0;
-            Debug.Log($"Error: {letter}. Errores totales: {incorrectCount}");
             bubblePlayer.TakeDamage();
         } 
         Debug.Log($"Racha: {streakCount}.");
@@ -234,13 +233,11 @@ public class BubbleSpawn : MonoBehaviour
         healEffect.SetActive(false);
     }
 
-    private void DisableStreakUI()
+    public void DisableStreakUI()
     {
         foreach (GameObject item in objectsToActivate)
         {
-
             item.SetActive(false);
-
         }
     }
 

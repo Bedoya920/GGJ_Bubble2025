@@ -740,6 +740,9 @@ MonoBehaviour:
   - {fileID: 944259499}
   - {fileID: 944259498}
   - {fileID: 944259497}
+  correctCount: 0
+  incorrectCount: 0
+  spawnedCounter: 0
   streakCount: 0
   healEffect: {fileID: 1061557752}
   animBubble:
@@ -9338,6 +9341,8 @@ MonoBehaviour:
   range: 45
   bubbleSpawn: {fileID: 62400267}
   muerteAnim: {fileID: 375298965}
+  scoreManager: {fileID: 1971535135}
+  textController: {fileID: 234411104}
 --- !u!212 &2084572236
 SpriteRenderer:
   m_ObjectHideFlags: 0
