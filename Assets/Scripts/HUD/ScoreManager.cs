@@ -23,8 +23,8 @@ public class ScoreManager : MonoBehaviour
 
     public void SetRemaining(int counter, int total)
     {
-        Debug.Log("total"+ total);
-        Debug.Log("counter"+counter);
+        //Debug.Log("total"+ total);
+        //Debug.Log("counter"+counter);
         remaining = total - counter;
     }
 }

@@ -54,7 +54,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("sceneIndex", PlayerPrefs.GetInt("sceneIndex") + 1);
         PlayerPrefs.Save();
         SceneManager.LoadScene(PlayerPrefs.GetInt("sceneIndex"));
-        Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));        
+        //Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));        
     }
 
     public void Continue()
@@ -64,7 +64,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("sceneIndex", PlayerPrefs.GetInt("lastLevelId"));
         PlayerPrefs.Save();
         SceneManager.LoadScene(PlayerPrefs.GetInt("sceneIndex"));
-        Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));
+        //Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));
     }
 
     // Para probar mi rey
