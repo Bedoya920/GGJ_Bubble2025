@@ -20,7 +20,7 @@ public class BubbleManager : MonoBehaviour
         if (letterController != null)
         {
             letterController.SetLevelInfo(levelId);
-            isActive = true;
+            StartCoroutine(levelManager.ActivateCount());
         }
     }
 
@@ -32,11 +32,9 @@ public class BubbleManager : MonoBehaviour
             bubbleSpawn.SpawnLetter(currentLetter);
             letterController.SubstractPoolLetter(currentLetter.letter);
             yield return new WaitForSeconds(letterSpawnTime);
-            Debug.Log("Ya esperee");
             if (letterController.GetLetterCount() == 0)
             {
-                Debug.Log("Terminamos we");
-                isActive = false;
+                break;
             }
         }
     }

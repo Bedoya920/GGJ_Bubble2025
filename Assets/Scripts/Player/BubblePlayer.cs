@@ -1,6 +1,8 @@
+using SignalSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BubblePlayer : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class BubblePlayer : MonoBehaviour
 
     public BubbleSpawn bubbleSpawn;
     public GameObject muerteAnim;
+    public ScoreManager scoreManager;
+    public TextController textController;
+    public bool isTakingDamage;
 
     void Start()
     {
@@ -18,12 +23,21 @@ public class BubblePlayer : MonoBehaviour
 
     public void TakeDamage()
     {
+        isTakingDamage = true;
+        bubbleSpawn.incorrectCount++;
+        bubbleSpawn.DisableStreakUI();
+        bubbleSpawn.streakCount = 0;
+        Debug.Log($"Errores totales: {bubbleSpawn.incorrectCount}");
         if (life > 0) {
             HUDManager.instance.UpdateUI(life);
             life--;
         }
-        
-        if(life <= 0)
+        scoreManager.IncreaseScore(bubbleSpawn.streakCount);
+        scoreManager.SetAccuracy(bubbleSpawn.correctCount, bubbleSpawn.incorrectCount);
+        scoreManager.SetRemaining(bubbleSpawn.spawnedCounter, bubbleSpawn.letterController.total);
+        textController.UpdateCanvasScore();
+
+        if (life <= 0)
         {
             //Parte cuando pierde
             muerteAnim.SetActive(true);
@@ -47,6 +61,7 @@ public class BubblePlayer : MonoBehaviour
 
         }
         //Animación de cambio o hit
+        isTakingDamage = false;
     }
 
     public void Heal()
@@ -76,12 +91,5 @@ public class BubblePlayer : MonoBehaviour
 
     public void DeleteLetter(string letter) {
         bubbleSpawn.RemoveLetter(letter);
-    }
-
-    
-
-    
-    
-
-    
+    }    
 }
