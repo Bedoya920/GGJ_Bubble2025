@@ -34,6 +34,8 @@ public class BubbleSpawn : MonoBehaviour
     private int randomIndex;
     private bool isSpawning;
 
+    public bool nextLevelOn;
+
 
     void Update()
     {
@@ -82,7 +84,15 @@ public class BubbleSpawn : MonoBehaviour
             }
             PlayerPrefs.SetInt("lastLevelId", levelManager.levelID + 1);
             bubbleManager.isActive = false;
-            nextLevelMenu.gameObject.SetActive(true);
+            if (nextLevelMenu != null) 
+            {
+                nextLevelMenu.gameObject.SetActive(true);
+                nextLevelOn = true;
+            } else
+            {
+                levelManager.NextScene();
+            }
+            
         }
     }
 
@@ -115,7 +125,7 @@ public class BubbleSpawn : MonoBehaviour
 
     private IEnumerator InstantiatePrefab(LetterObject letterObject, Transform spawner)
     { 
-        Debug.Log("Buscando" + letterObject.letter);
+        //Debug.Log("Buscando" + letterObject.letter);
         var prefabObject = prefabList.Find(element => element.letter == letterObject.letter);
         Debug.Log(prefabObject);
         if (prefabObject != null && prefabObject.prefab != null)
@@ -175,7 +185,7 @@ public class BubbleSpawn : MonoBehaviour
             spawnedCounter += 1;
             correctCount++;
             streakCount++;
-            Debug.Log($"Acierto: {letter}. Aciertos totales: {correctCount}");
+            //Debug.Log($"Acierto: {letter}. Aciertos totales: {correctCount}");
         } else
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.failureSound);
