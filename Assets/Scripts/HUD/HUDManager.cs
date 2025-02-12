@@ -16,7 +16,9 @@ public class HUDManager : MonoBehaviour
     public GameObject hitEffect;
 
     public bool isPaused = false;
-    
+
+    public BubbleSpawn bubbleSpawn;
+
 
 
     void Awake()
@@ -28,6 +30,11 @@ public class HUDManager : MonoBehaviour
         } else {
             instance = this;
         }
+    }
+
+    private void Start()
+    {
+        bubbleSpawn.nextLevelOn = false;
     }
 
     void Update()
@@ -53,10 +60,14 @@ public class HUDManager : MonoBehaviour
 
     void PauseGame()
     {
-        Time.timeScale = 0; 
-        isPaused = true; 
-        pauseCanvas.SetActive(true);
-        Debug.Log("Juego pausado");
+        if(!bubbleSpawn.nextLevelOn)
+        {
+            Time.timeScale = 0;
+            isPaused = true;
+            pauseCanvas.SetActive(true);
+            Debug.Log("Juego pausado");
+        }
+        
     }
 
     void ResumeGame()

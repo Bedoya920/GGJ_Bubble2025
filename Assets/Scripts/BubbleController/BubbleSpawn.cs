@@ -34,6 +34,8 @@ public class BubbleSpawn : MonoBehaviour
     private int randomIndex;
     private bool isSpawning;
 
+    public bool nextLevelOn;
+
 
     void Update()
     {
@@ -82,7 +84,15 @@ public class BubbleSpawn : MonoBehaviour
             }
             PlayerPrefs.SetInt("lastLevelId", levelManager.levelID + 1);
             bubbleManager.isActive = false;
-            nextLevelMenu.gameObject.SetActive(true);
+            if (nextLevelMenu != null) 
+            {
+                nextLevelMenu.gameObject.SetActive(true);
+                nextLevelOn = true;
+            } else
+            {
+                levelManager.NextScene();
+            }
+            
         }
     }
 
