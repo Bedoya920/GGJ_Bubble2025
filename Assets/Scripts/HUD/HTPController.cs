@@ -8,8 +8,12 @@ public class HTPController : MonoBehaviour
     public GameObject[] slides;
     int slideIndex;
     int currentScene;
-    [SerializeField]GameObject countdownCanvas;
     [SerializeField]LevelManager levelM;
+    [SerializeField]GameObject countdownCanvas;
+
+    [SerializeField]GameObject menuCanvas;
+    [SerializeField]GameObject htpCanvas;
+
 
     void Start()
     {
@@ -42,8 +46,9 @@ public class HTPController : MonoBehaviour
             
 
         } else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex == 7 && currentScene == 0){
-            Debug.Log("Hola");
-            StartCountdown();
+            menuCanvas.SetActive(true);
+            ResetSlides();
+            htpCanvas.SetActive(false);
 
         }
 

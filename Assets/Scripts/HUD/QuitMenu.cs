@@ -6,18 +6,32 @@ public class QuitMenu : MonoBehaviour
 {
     public GameObject menuCanva;
     public LevelManager levelManager;
-    
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.RightArrow))
         {
-            levelManager.Menu();
+            QuitGame();
         }
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            gameObject.SetActive(false);
-            menuCanva.SetActive(true);
+            BackMenu();
         }
     }
+
+    public void QuitGame()
+    {
+        levelManager.QuitGame();
+        print("Se salió");
+    }
+
+    public void BackMenu()
+    {
+        
+        menuCanva.SetActive(true);
+        print("Back menu");
+        gameObject.SetActive(false);
+    }
+
+
 }
