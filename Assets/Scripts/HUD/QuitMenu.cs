@@ -1,17 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QuitMenu : MonoBehaviour
 {
     public GameObject menuCanva;
     public LevelManager levelManager;
+    int currentScene;
 
+    void Awake()
+    {
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.RightArrow))
         {
-            QuitGame();
+            if(currentScene == 0)
+            {
+                QuitGame();
+            } else{
+                GoMenu();
+            }
+            
         }
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -22,16 +34,20 @@ public class QuitMenu : MonoBehaviour
     public void QuitGame()
     {
         levelManager.QuitGame();
-        print("Se salió");
     }
 
     public void BackMenu()
     {
-        
         menuCanva.SetActive(true);
-        print("Back menu");
         gameObject.SetActive(false);
     }
+
+    public void GoMenu()
+    {
+        levelManager.Menu();
+    }
+
+    
 
 
 }

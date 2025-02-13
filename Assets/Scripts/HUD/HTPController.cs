@@ -46,19 +46,13 @@ public class HTPController : MonoBehaviour
             
 
         } else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex == 7 && currentScene == 0){
-            menuCanvas.SetActive(true);
-            ResetSlides();
-            htpCanvas.SetActive(false);
+            FinalSlide();
 
         }
 
         if(Input.GetKeyDown(KeyCode.LeftArrow) && slideIndex > 0)
         {
-            //lógica slide a la izquierda
-            AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
-            slides[slideIndex].SetActive(false);
-            slideIndex--;
-            slides[slideIndex].SetActive(true);
+            LeftArrowAction();
         }
     }
 
@@ -78,5 +72,21 @@ public class HTPController : MonoBehaviour
         this.gameObject.SetActive(false);
         levelM.StartTimerButton();
 
+    }
+
+    public void FinalSlide()
+    {
+        menuCanvas.SetActive(true);
+        ResetSlides();
+        htpCanvas.SetActive(false);
+    }
+
+    public void LeftArrowAction()
+    {
+        //lógica slide a la izquierda
+        AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
+        slides[slideIndex].SetActive(false);
+        slideIndex--;
+        slides[slideIndex].SetActive(true);
     }
 }
