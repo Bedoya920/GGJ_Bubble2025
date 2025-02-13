@@ -8,8 +8,12 @@ public class HTPController : MonoBehaviour
     public GameObject[] slides;
     int slideIndex;
     int currentScene;
-    [SerializeField]GameObject countdownCanvas;
     [SerializeField]LevelManager levelM;
+    [SerializeField]GameObject countdownCanvas;
+
+    [SerializeField]GameObject menuCanvas;
+    [SerializeField]GameObject htpCanvas;
+
 
     void Start()
     {
@@ -42,18 +46,13 @@ public class HTPController : MonoBehaviour
             
 
         } else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex == 7 && currentScene == 0){
-            Debug.Log("Hola");
-            StartCountdown();
+            FinalSlide();
 
         }
 
         if(Input.GetKeyDown(KeyCode.LeftArrow) && slideIndex > 0)
         {
-            //lógica slide a la izquierda
-            AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
-            slides[slideIndex].SetActive(false);
-            slideIndex--;
-            slides[slideIndex].SetActive(true);
+            LeftArrowAction();
         }
     }
 
@@ -73,5 +72,21 @@ public class HTPController : MonoBehaviour
         this.gameObject.SetActive(false);
         levelM.StartTimerButton();
 
+    }
+
+    public void FinalSlide()
+    {
+        menuCanvas.SetActive(true);
+        ResetSlides();
+        htpCanvas.SetActive(false);
+    }
+
+    public void LeftArrowAction()
+    {
+        //lógica slide a la izquierda
+        AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
+        slides[slideIndex].SetActive(false);
+        slideIndex--;
+        slides[slideIndex].SetActive(true);
     }
 }
