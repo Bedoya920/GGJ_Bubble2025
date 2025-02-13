@@ -123,6 +123,7 @@ public class LevelManager : MonoBehaviour
                     // Asigna un color de la lista al d�gito que cambia
                     Color color = colors[timeLeft % colors.Count]; // Usa el tiempo restante para elegir el color
                     coloredText += $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{timerString[i]}</color>";
+                    AudioManager.instance.SelectedButtonSound();
                 }
                 else
                 {
@@ -166,6 +167,7 @@ public class LevelManager : MonoBehaviour
                     // Asigna un color de la lista al d�gito que cambia
                     Color color = colors[timeLeft % colors.Count];
                     coloredText += $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{timerString[i]}</color>";
+                    AudioManager.instance.SelectedButtonSound();
                 }
                 else
                 {

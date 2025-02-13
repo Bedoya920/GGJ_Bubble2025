@@ -6,6 +6,7 @@ public class QuitMenu : MonoBehaviour
 {
     public GameObject menuCanva;
     public LevelManager levelManager;
+    
 
     void Update()
     {
