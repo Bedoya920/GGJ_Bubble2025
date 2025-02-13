@@ -751,6 +751,7 @@ MonoBehaviour:
   - {fileID: 3577437186811679399, guid: aa07c54c9e58d0b429f5b756f07fb386, type: 3}
   - {fileID: 8182335645917601325, guid: 9eed1089533e9fc499c9a3bbf4d8c0ba, type: 3}
   - {fileID: 2033699180922117429, guid: bce8eb397588c5546816112b58787775, type: 3}
+  nextLevelOn: 0
 --- !u!4 &62400268
 Transform:
   m_ObjectHideFlags: 0
@@ -2817,6 +2818,7 @@ MonoBehaviour:
   pauseCanvas: {fileID: 1323906209}
   hitEffect: {fileID: 635784650}
   isPaused: 0
+  bubbleSpawn: {fileID: 62400267}
 --- !u!114 &478530938
 MonoBehaviour:
   m_ObjectHideFlags: 0
