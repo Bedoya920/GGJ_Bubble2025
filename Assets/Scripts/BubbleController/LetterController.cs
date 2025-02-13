@@ -36,8 +36,8 @@ namespace SignalSystem
 
         public void SetLevelInfo(int targetLevelID)
         {
-            Debug.Log(targetLevelID);
-            Debug.Log("Longitud array" + letterPool.Length);
+            //Debug.Log(targetLevelID);
+            //Debug.Log("Longitud array" + letterPool.Length);
             foreach (var letterList in letterPool)
             {
                 if (letterList.levelID == targetLevelID)
@@ -45,13 +45,13 @@ namespace SignalSystem
                     levelInfo = letterList;
                     total = levelInfo.total;
                     textController.remainingValue.text = total.ToString();
-                    Debug.Log("Encontro el listado del nivel");
+                    //Debug.Log("Encontro el listado del nivel");
                     return;
                 }
             }
 
             levelInfo = null;
-            Debug.Log("No encontro el listado del nivel");
+            //Debug.Log("No encontro el listado del nivel");
             Debug.LogWarning($"Level with ID {targetLevelID} not found in the letter pool.");
 
         }
@@ -64,10 +64,10 @@ namespace SignalSystem
                 return;
             }
 
-            var rng = new System.Random(); // Generador de números aleatorios
+            var rng = new System.Random(); // Generador de nï¿½meros aleatorios
             for (int i = levelInfo.letters.Count - 1; i > 0; i--)
             {
-                // Obtener un índice aleatorio
+                // Obtener un ï¿½ndice aleatorio
                 int j = rng.Next(i + 1);
 
                 // Intercambiar las posiciones de las letras

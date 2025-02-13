@@ -20,9 +20,10 @@ public class LevelManager : MonoBehaviour
     public int totalTime = 10; 
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         if (instance != null)
         {
-            Destroy(gameObject); // Evita duplicados eliminando esta instancia
+            Destroy(gameObject);
             return;
         } else {
             instance = this;
@@ -43,10 +44,9 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.Save();
         }        
         bubbleManager.SelectLevel(levelID);
-        StartCoroutine(bubbleManager.StartLevel());
-        StartCoroutine(bubbleManager.ReduceSpawnTime());
         //StartCoroutine(StartTimer());
     }
+
 
     public void NextScene()
     {
@@ -56,7 +56,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("sceneIndex", PlayerPrefs.GetInt("sceneIndex") + 1);
         PlayerPrefs.Save();
         SceneManager.LoadScene(PlayerPrefs.GetInt("sceneIndex"));
-        Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));        
+        //Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));        
     }
 
     public void Continue()
@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("sceneIndex", PlayerPrefs.GetInt("lastLevelId"));
         PlayerPrefs.Save();
         SceneManager.LoadScene(PlayerPrefs.GetInt("sceneIndex"));
-        Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));
+        //Debug.Log("levelId" + PlayerPrefs.GetInt("levelId"));
     }
 
     // Para probar mi rey
@@ -92,8 +92,7 @@ public class LevelManager : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
         bubbleManager.SelectLevel(levelID);
-        StartCoroutine(bubbleManager.StartLevel());
-        StartCoroutine(bubbleManager.ReduceSpawnTime());
+        StartCoroutine(ActivateCount());
     }
 
     public void PauseGame()
@@ -126,6 +125,7 @@ public class LevelManager : MonoBehaviour
                     // Asigna un color de la lista al d�gito que cambia
                     Color color = colors[timeLeft % colors.Count]; // Usa el tiempo restante para elegir el color
                     coloredText += $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{timerString[i]}</color>";
+                    AudioManager.instance.SelectedButtonSound();
                 }
                 else
                 {
@@ -146,7 +146,51 @@ public class LevelManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         NextScene();
+    }
 
+    public IEnumerator ActivateCount()
+    {
+        timerText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+
+        int timeLeft = totalTime;
+
+        while (timeLeft >= 0)
+        {
+
+            string timerString = timeLeft.ToString("0");
+
+
+            string coloredText = "";
+            for (int i = 0; i < timerString.Length; i++)
+            {
+                if (i == timerString.Length - 1) // Solo el �ltimo d�gito (el de la derecha)
+                {
+                    // Asigna un color de la lista al d�gito que cambia
+                    Color color = colors[timeLeft % colors.Count];
+                    coloredText += $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{timerString[i]}</color>";
+                    AudioManager.instance.SelectedButtonSound();
+                }
+                else
+                {
+                    // El otro d�gito permanece con el color predeterminado (blanco o el que tenga el texto)
+                    coloredText += timerString[i];
+                }
+            }
+
+
+            timerText.text = coloredText;
+
+
+            yield return new WaitForSeconds(1f);
+
+
+            timeLeft--;
+        }
+        bubbleManager.isActive = true;
+        StartCoroutine(bubbleManager.StartLevel());
+        StartCoroutine(bubbleManager.ReduceSpawnTime());
+        timerText.gameObject.SetActive(false);
     }
 
     private void ResetScenePrefs() 
