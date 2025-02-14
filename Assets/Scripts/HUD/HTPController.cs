@@ -46,6 +46,7 @@ public class HTPController : MonoBehaviour
             
 
         } else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex == 7 && currentScene == 0){
+            AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
             FinalSlide();
 
         }
