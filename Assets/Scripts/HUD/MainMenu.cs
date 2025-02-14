@@ -18,10 +18,11 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        
         PlayerPrefs.DeleteKey("levelId");
         PlayerPrefs.DeleteKey("sceneIndex");
         isOld = PlayerPrefs.GetInt("isOld") == 1; 
+    
 
         if(isOld)
         {
@@ -38,6 +39,7 @@ public class MainMenu : MonoBehaviour
             hTPCanva.SetActive(true);
             menuCanva.SetActive(false);
             PlayerPrefs.SetInt("isOld", 1); 
+            isOld = true;
         }
         else
         {

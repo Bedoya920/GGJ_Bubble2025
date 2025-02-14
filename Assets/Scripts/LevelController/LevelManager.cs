@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour
     public int totalTime = 10; 
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         if (instance != null)
         {
             Destroy(gameObject);
@@ -45,6 +46,7 @@ public class LevelManager : MonoBehaviour
         bubbleManager.SelectLevel(levelID);
         //StartCoroutine(StartTimer());
     }
+
 
     public void NextScene()
     {
