@@ -45,12 +45,14 @@ public class HTPController : MonoBehaviour
         } else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex == 7){
             AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
             FinalSlide();
-
         }
 
         if(Input.GetKeyDown(KeyCode.LeftArrow) && slideIndex > 0)
         {
             LeftArrowAction();
+        } else if (currentScene != 0 && Input.GetKeyDown(KeyCode.LeftArrow) && slideIndex == 0)
+        {
+            FinalSlide();
         }
     }
 
