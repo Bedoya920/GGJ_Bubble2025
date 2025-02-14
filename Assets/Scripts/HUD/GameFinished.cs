@@ -17,6 +17,8 @@ public class GameFinished : MonoBehaviour
 
     public void GoMenu()
     {
+        PlayerPrefs.SetInt("gameFinished", 1);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(0);
     }
 

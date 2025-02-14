@@ -67,15 +67,46 @@ public class HUDManager : MonoBehaviour
             pauseCanvas.SetActive(true);
             Debug.Log("Juego pausado");
         }
-        
+
     }
 
     void ResumeGame()
     {
-        Time.timeScale = 1; 
-        isPaused = false; 
+        Time.timeScale = 1;
+        isPaused = false;
+        RestartCanvas();
         pauseCanvas.SetActive(false);
         Debug.Log("Juego reanudado");
+    }
+
+    public void RestartCanvas() {
+        if (pauseCanvas != null)
+        {
+            Transform quitMenu = pauseCanvas.transform.Find("QuitMenu");
+            Transform mainMenu = pauseCanvas.transform.Find("Menu");
+            Transform configMenu = pauseCanvas.transform.Find("Config");
+            Transform htpMenu = pauseCanvas.transform.Find("ComoJugar");
+            if (quitMenu != null && mainMenu != null && configMenu != null && htpMenu != null)
+            {
+                HTPController menuhtp = htpMenu.GetComponent<HTPController>();
+                quitMenu.gameObject.SetActive(false);
+                configMenu.gameObject.SetActive(false);
+                if (menuhtp != null) {
+                    Debug.Log("htp", menuhtp);
+                    menuhtp.FinalSlide();
+                }
+                mainMenu.gameObject.SetActive(true);
+                
+            }
+            else
+            {
+                Debug.LogWarning("No se encontró el GameObject 'QuitMenu' dentro de 'Game Paused'.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró el GameObject 'Game Paused'.");
+        }
     }
 
     public void UpdateUI(int life)

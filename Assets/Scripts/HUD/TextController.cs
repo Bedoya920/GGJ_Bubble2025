@@ -80,10 +80,32 @@ public class TextController : MonoBehaviour
         int totalFailed = PlayerPrefs.GetInt("failedKeysLevel1") + PlayerPrefs.GetInt("failedKeysLevel2") + PlayerPrefs.GetInt("failedKeysLevel3");
         Debug.Log($"{totalTyped}");
         if (totalTyped > 0) {
-            accuracyText.text = $"{100 - (totalFailed * 100 / totalTyped)} %";
-            typedText.text = totalTyped.ToString();
-            failedText.text = totalFailed.ToString();
+            StartCoroutine(AnimateTextChange(accuracyText, 100 - (totalFailed * 100 / totalTyped), "%"));
+            StartCoroutine(AnimateTextChange(typedText, totalTyped, ""));
+            StartCoroutine(AnimateTextChange(failedText, totalFailed, ""));
         }
+    }
+
+    private IEnumerator AnimateTextChange(Text textElement, int targetValue, string sufix)
+    {
+        int currentValue = 0;
+        if (int.TryParse(textElement.text.Replace("%", ""), out int parsedValue))
+        {
+            currentValue = parsedValue;
+        }
+
+        float duration = 2f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            int newValue = Mathf.RoundToInt(Mathf.Lerp(currentValue, targetValue, elapsedTime / duration));
+            textElement.text = targetValue == currentValue ? targetValue.ToString() : $"{newValue}" + (textElement == accuracyText ? $" {sufix}" : "");
+            yield return null;
+        }
+
+        textElement.text = targetValue + (textElement == accuracyText ? " %" : "");
     }
 }
 
