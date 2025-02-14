@@ -1,6 +1,7 @@
 using SignalSystem;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,7 +16,8 @@ public class LevelManager : MonoBehaviour
     public LetterController letterController;
     public BubbleSpawn bubbleSpawn;
 
-    public Text timerText; 
+    // public Text timerText; // anterior
+    public TMP_Text timerText;
     public List<Color> colors; 
     public int totalTime = 10; 
     private void Awake()
