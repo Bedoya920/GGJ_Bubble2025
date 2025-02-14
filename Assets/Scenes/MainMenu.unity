@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15231259, g: 0.009789899, b: 0.34591186, a: 0.45490196}
+  m_Color: {r: 0.18431373, g: 0.015686275, b: 0.44313726, a: 0.84313726}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2862,7 +2862,7 @@ MonoBehaviour:
   bubbleManager: {fileID: 1249987215}
   letterController: {fileID: 0}
   bubbleSpawn: {fileID: 0}
-  timerText: {fileID: 1162742746}
+  timerText: {fileID: 0}
   colors:
   - {r: 0.9960785, g: 0.80392164, b: 0.6, a: 1}
   - {r: 0.6039216, g: 0.87843144, b: 0.9960785, a: 1}
@@ -2940,7 +2940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15294118, g: 0.007843138, b: 0.34509805, a: 0.45490196}
+  m_Color: {r: 0.18431373, g: 0.015686275, b: 0.44313726, a: 0.84313726}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9433,7 +9433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15294118, g: 0.007843138, b: 0.34509805, a: 0.45490196}
+  m_Color: {r: 0.18431373, g: 0.015686275, b: 0.44313726, a: 0.84313726}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13185,7 +13185,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Finger locations
+  m_text: Locate your fingers
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b80de5b0ba7c35247bc358154879e193, type: 2}
   m_sharedMaterial: {fileID: -278383105257600960, guid: b80de5b0ba7c35247bc358154879e193,

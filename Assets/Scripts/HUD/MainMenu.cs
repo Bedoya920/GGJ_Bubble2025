@@ -18,27 +18,32 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        
         PlayerPrefs.DeleteKey("levelId");
         PlayerPrefs.DeleteKey("sceneIndex");
-        isOld = PlayerPrefs.GetInt("isOld") == 1; 
-    
+        isOld = PlayerPrefs.GetInt("isOld") == 1;
+        int gameFinished = PlayerPrefs.GetInt("gameFinished");
 
-        if(isOld)
+        if (isOld)
         {
             hTPButton.SetActive(true);
             continueButton.SetActive(true);
+        }
+
+        if (gameFinished == 1)
+        {
+            continueButton.SetActive(false);
         }
     }
 
     public void StartGame()
     {
-        
+        PlayerPrefs.SetInt("gameFinished", 0);
+        PlayerPrefs.Save();
         if (!isOld)
         {
             hTPCanva.SetActive(true);
             menuCanva.SetActive(false);
-            PlayerPrefs.SetInt("isOld", 1); 
+            PlayerPrefs.SetInt("isOld", 1);
             isOld = true;
         }
         else
