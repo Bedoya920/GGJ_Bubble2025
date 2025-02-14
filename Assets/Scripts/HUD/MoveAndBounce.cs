@@ -19,6 +19,7 @@ public class MoveAndBounce : MonoBehaviour
         // Mueve el sprite al punto B
         transform.DOMove(target.position, moveDuration)
             .SetEase(Ease.Linear) // Movimiento lineal
+            .SetUpdate(true)
             .OnComplete(() =>
             {
                 // Aplica el efecto de rebote al llegar
@@ -30,6 +31,7 @@ public class MoveAndBounce : MonoBehaviour
     {
         // Realiza el rebote
         transform.DOPunchPosition(new Vector3(0, bounceDistance, 0), bounceDuration, 1, 0)
+            .SetUpdate(true)
             .OnComplete(() =>
             {
                 // Aquí puedes agregar cualquier acción adicional después del rebote

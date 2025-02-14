@@ -35,17 +35,14 @@ public class HTPController : MonoBehaviour
             AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
             slides[slideIndex].SetActive(false);
             slideIndex++;
-            slides[slideIndex].SetActive(true);
+            slides[slideIndex].SetActive(true);            
             
-            
-        }else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex < 2 && currentScene != 0){
+        }else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex < 7 && currentScene != 0){
             AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
             slides[slideIndex].SetActive(false);
             slideIndex++;
             slides[slideIndex].SetActive(true);
-            
-
-        } else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex == 7 && currentScene == 0){
+        } else if(Input.GetKeyDown(KeyCode.RightArrow) && slideIndex == 7){
             AudioManager.instance.PlaySFX(AudioManager.instance.selectedButtom);
             FinalSlide();
 
@@ -72,7 +69,6 @@ public class HTPController : MonoBehaviour
         countdownCanvas.SetActive(true);
         this.gameObject.SetActive(false);
         levelM.StartTimerButton();
-
     }
 
     public void FinalSlide()
