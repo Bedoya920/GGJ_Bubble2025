@@ -132,7 +132,7 @@ public class BubbleSpawn : MonoBehaviour
         {
             isSpawning = true;
             if (letterObject.specialCharacter) {
-                textController.ShowTextWithFade("A special character is approaching!");
+                textController.ShowTextWithFade("A special character is coming!");
                 Debug.Log(letterController.levelInfo.letters.Count == 0 && instancedBubbles.Count == 0 && hUDManager.livesCanvas.Length > 0);
                 yield return new WaitForSeconds(1f);
             }
