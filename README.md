@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Valuv/Khras/blob/main/Imagenes/Khraslogo.jpeg" alt="Khras Logo" width="300" style="border-radius: 50%;" />
+  <img src="(https://github.com/Bedoya920/GGJ_Bubble2025/blob/main/Assets/Imagenes/Img1.png)" alt="Khras Logo" width="300" style="border-radius: 50%;" />
 </p>
 
 ## 📖 Description
