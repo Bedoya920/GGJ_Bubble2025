@@ -3,7 +3,7 @@
 </p>
 
 ## 📖 Description
-Welcome to the **Bybble Typing** repository.
+Welcome to the **Bubble Typing** repository.
 
 Did you know that with a simple game you can improve the health of your hands?
 
